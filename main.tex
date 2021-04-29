@@ -18,10 +18,8 @@
 %\usepackage[oldstyle]{ebgaramond}
 %\usepackage{tgschola}
 %\usepackage[default]{gfsbodoni}
-%\usepackage[T1]{fontenc}
 %\usepackage[english,greek]{babel}
 %\usepackage[default]{gfsneohellenic}
-%\usepackage[LGR,T1]{fontenc} %% LGR encoding is needed for loading the package gfsneohellenic
 %the fontspec way to load fonts
 %\setmainfont[Ligatures=TeX,Numbers={OldStyle, Proportional}]{GFS Neohellenic}
 %\usepackage{wallpaper}
@@ -35,7 +33,6 @@
 \usepackage{graphicx}
 \usepackage{svg}
 \usepackage{csquotes}
-\usepackage{wrapfig}
 \usepackage{float}
 \usepackage[]{caption}
 \usepackage[ noclrdblpg]{colophon}
@@ -53,6 +50,7 @@
 \usepackage[printwatermark]{xwatermark}
 \newwatermark*[firstpage,color=red!50,angle=45,scale=5,xpos=0,ypos=0]{DRAFT}
 
+\usepackage{enumerate}
 \usepackage{expl3}
 
 \newcommand{\citeart}[1]{\citetitle{#1}, \citefield{#1}{annotation} by \citeauthor{#1}, \citeyear{#1} \cite{#1}}
@@ -70,17 +68,22 @@
   \begin{quote}\textit{#1}\end{quote}
   }
 \usepackage{bookmark}
-\usepackage[textsize=tiny]{todonotes}
-\usepackage{dvgloss}
 \usepackage{etoolbox}
+\captionsetup{labelformat=empty,labelsep=none}
 
+\usepackage[side,flushmargin,ragged,multiple,perpage]{footmisc}
+\usepackage[para*]{manyfoot}
+\DeclareNewFootnote{A}[arabic]
+\DeclareNewFootnote[para]{B}[roman]
 \usepackage[]{marginnote}
-\newcommand\margindef[2]{\marginnote{\tiny{}#1}\underline{#2}}
+\newcommand\margindef[2]{#2\footnoteA{\scriptsize{}#1}}
+\newcommand\latinmargintrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
 \newcommand\setmarginnote[2]{\csdef{marginnote#1}{#2}}
 \newcommand\getmarginnote[1]{\csuse{marginnote#1}}
-\newcommand\mmarginpar[1]{\hyperref[#1]{\textsuperscript{\scriptsize{}\textrm{[#1]}}}\marginnote{\setstretch{0.6}\scriptsize{}\textrm{[#1]}\label{#1} \csuse{marginnote#1}}}
+\newcommand\mmarginpar[1]{\footnoteB{\csuse{marginnote#1}}}
+\newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \usepackage{metalogo}
-\usepackage[bottom]{footmisc}
+%\usepackage[bottom]{footmisc}
 \usepackage{tikz}
 \usepackage{setspace}
 \ExplSyntaxOn
@@ -97,10 +100,13 @@
 \def\etal{\latinabbrev{et al}}
 \def\etc{\latinabbrev{etc}}
 \def\ie{\latinabbrev{i.e}}
+\usepackage{lettrine}
+\usepackage{wasysym}
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
-%\includeonly{00-frontispiece-legend,00-about-the-author,02-the-argument-of-the-frontispiece}
+%\includeonly{00-frontispiece-legend,00-about-the-author,12-particular-cures}
+\hyphenation{Chry-so-stom The-mi-sto-cles}
 \begin{document}
 \frontmatter
   \newgeometry{marginparwidth=45pt}
@@ -136,8 +142,8 @@
 \include{01-democritus-jr-to-his-book}
 \include{02-the-argument-of-the-frontispiece}
 \include{03-the-authors-abstract-of-melancholy}
-\include{04-democratus-jr-to-the-reader-notes}
-\include{04-democratus-jr-to-the-reader}
+\include{04-democritus-jr-to-the-reader-notes}
+\include{04-democritus-jr-to-the-reader}
 \include{05-to-the-reader-at-leisure}
 \part{The First Partition}
 \include{06-synopsis-of-the-first-partition}

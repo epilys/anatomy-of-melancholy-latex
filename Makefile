@@ -24,6 +24,7 @@ anatomy-of-melancholy.pdf: main.tex *.tex
 	latexmk -pdfxe  -pdfxelatex="xelatex --shell-escape %O %S" -use-make main.tex
 	@du -sh main.pdf
 	@mpv --volume 35 /usr/share/sounds/freedesktop/stereo/bell.oga > /dev/null
+	@notify-send Done
 
 
 clean:
