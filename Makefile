@@ -29,3 +29,6 @@ anatomy-of-melancholy.pdf: main.tex *.tex
 
 clean:
 	latexmk -CA
+
+gen-samples:
+	convert -alpha remove -density 300 -quality 100 "main.pdf[$(pages)]" output.png

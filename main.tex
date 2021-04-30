@@ -1,4 +1,4 @@
-\documentclass[titlepage,12pt,a4]{octavo}
+\documentclass[titlepage,12pt,royal]{octavo}
 %\addtolength{\evensidemargin}{2\paperwidth}
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -11,7 +11,7 @@
   datecirca=true,
   sorting=none
 ]{biblatex}
-\setmainfont[Scale=0.9,BoldItalicFont=Junicode]{Junicode}
+\setmainfont[Scale=1,BoldItalicFont=Junicode]{Junicode}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -53,8 +53,8 @@
 \usepackage{enumerate}
 \usepackage{expl3}
 
-\newcommand{\citeart}[1]{\citetitle{#1}, \citefield{#1}{annotation} by \citeauthor{#1}, \citeyear{#1} \cite{#1}}
-\newcommand{\citecaption}[1]{\citetitle{#1}, \citeauthor{#1} \citeyear{#1} \cite{#1}}
+\newcommand{\citeart}[1]{\citetitle{#1}, \citefield{#1}{annotation} by \citeauthor{#1}, \citeyear{#1} \nocite{#1}}
+%\newcommand{\citecaption}[1]{\citetitle{#1}, \citeauthor{#1} \citeyear{#1} \nocite{#1}}
 \DefineBibliographyStrings{english}{%
   backrefpage = {page},% originally "cited on page"
   backrefpages = {pages},% originally "cited on pages"
@@ -72,7 +72,7 @@
 \captionsetup{labelformat=empty,labelsep=none}
 
 \usepackage[side,flushmargin,ragged,multiple,perpage]{footmisc}
-\usepackage[para*]{manyfoot}
+\usepackage[para*,perpage]{manyfoot}
 \DeclareNewFootnote{A}[arabic]
 \DeclareNewFootnote[para]{B}[roman]
 \usepackage[]{marginnote}
@@ -101,6 +101,9 @@
 \def\etc{\latinabbrev{etc}}
 \def\ie{\latinabbrev{i.e}}
 \usepackage{lettrine}
+\setcounter{DefaultLines}{3}
+\setlength{\DefaultFindent}{5pt}
+\setlength{\DefaultNindent}{0pt}
 \usepackage{wasysym}
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
@@ -109,13 +112,10 @@
 \hyphenation{Chry-so-stom The-mi-sto-cles}
 \begin{document}
 \frontmatter
-  \newgeometry{marginparwidth=45pt}
 \pdfbookmark{Cover}{cover}
 \begin{titlepage}
-  \newgeometry{margin={0cm,0cm},bindingoffset=-11pt,height=\paperheight,width=\paperwidth,layoutoffset={0cm,0cm},offset={0cm,0cm},head=0cm,top=0cm,left=0cm,bottom=0cm}
-  \includesvg[width=\paperwidth,keepaspectratio=true]{cover-page001.svg} \label{cover}
+  \includepdf[fitpaper=true]{new-cover.pdf} \label{cover}
 \end{titlepage}
-  \restoregeometry
 \pdfbookmark{Frontispiece}{Frontispiece}
   \newgeometry{onecolumn=true,bindingoffset=0pt,margin={21pt,42pt},centering=true,ignoreall=true,noheadfoot=true}
   {\begin{center}
@@ -134,6 +134,9 @@
 \pdfbookmark{\contentsname}{toc}
 \restoregeometry
 \tableofcontents
+\clearpage
+\phantomsection
+\pdfbookmark[0]{List of Figures}{lof}
 \listoffigures
 \bookmarksetup{startatroot}
 \include{00-about-the-author}
@@ -185,7 +188,9 @@
 \colophonparsize{10pt}
 \begin{colophon}
 \epigraph{\footnotesize\textit{'Morteque malorum: raptor libri moriatur'}\\(Death from evil things: may the thief of this book die.)}{\scriptsize{}Scribe curses a book’s thief to death, from William of Nottingham’s Commentary on the Harmony of the Gospels, Evesham, c. 1381, Royal MS 4 E II, f. 471r}
-Avoid the fate of this curse by procuring this document \emph{gratis et libre}: \href{https://github.com/epilys/anatomy-of-melancholy-latex}{\underline{https://github.com/epilys/anatomy-of-melancholy-latex}}.
+Avoid the fate of this curse by procuring this document \emph{gratis et libre}:
+
+  \href{https://github.com/epilys/anatomy-of-melancholy-latex}{\underline{https://github.com/epilys/anatomy-of-melancholy-latex}}.
 
   The text has been typeset in \XeLaTeX{} using the \texttt{octavo} class and \textbf{Junicode} typeface.
 \end{colophon}
