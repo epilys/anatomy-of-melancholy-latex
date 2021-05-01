@@ -105,6 +105,9 @@
 \setlength{\DefaultFindent}{5pt}
 \setlength{\DefaultNindent}{0pt}
 \usepackage{wasysym}
+\newcommand\marginrecipe[1]{\marginnote{\scriptsize{}#1}}%
+\floatstyle{plain}
+\newfloat{Prescription}{H}{lop}[section]
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
@@ -138,6 +141,10 @@
 \phantomsection
 \pdfbookmark[0]{List of Figures}{lof}
 \listoffigures
+\clearpage
+\phantomsection
+\pdfbookmark[0]{List of Prescriptions}{lop}
+\listof{Prescription}{List of Prescriptions}
 \bookmarksetup{startatroot}
 \include{00-about-the-author}
 \clearpage
