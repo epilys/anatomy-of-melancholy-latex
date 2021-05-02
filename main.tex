@@ -78,9 +78,10 @@
 \usepackage[]{marginnote}
 \newcommand\margindef[2]{#2\footnoteA{\scriptsize{}#1}}
 \newcommand\latinmargintrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
-\newcommand\setmarginnote[2]{\csdef{marginnote#1}{#2}}
-\newcommand\getmarginnote[1]{\csuse{marginnote#1}}
-\newcommand\mmarginpar[1]{\footnoteB{\csuse{marginnote#1}}}
+\newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
+\newcommand\getauthornote[1]{\csuse{authornote#1}}
+\newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
+\newcommand\authormarginnote[1]{\marginnote{\csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
