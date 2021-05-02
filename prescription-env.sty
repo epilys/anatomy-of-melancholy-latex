@@ -1,0 +1,11 @@
+\RequirePackage{float}
+\RequirePackage{fancybox}
+\floatstyle{plain}
+\newfloat{Prescription}{H}{lop}
+\newenvironment{prescriptionbox}[2]%
+{\def\PrescriptionClosingStmt{#2}\begin{Sbox}\begin{minipage}[c]{15em}%
+\par
+\scriptsize{}\textlatin{℞.\ }#1\vspace{-0.5\baselineskip}\begin{enumerate}[i]}%
+{\end{enumerate}\par\vspace{-0.6\baselineskip}%
+\PrescriptionClosingStmt{}\vspace{0.6\baselineskip}\par{}{\normalsize{}}\end{minipage}%
+\end{Sbox}\begin{center}\fbox{\TheSbox}\vspace{-0.6\baselineskip}\end{center}}
