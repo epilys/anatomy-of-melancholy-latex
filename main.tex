@@ -1,4 +1,4 @@
-\documentclass[titlepage,12pt,royal]{octavo}
+\documentclass[titlepage,12pt,superroyal]{octavo}
 %\addtolength{\evensidemargin}{2\paperwidth}
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -27,7 +27,9 @@
 \usepackage{epigraph}
 \usepackage{hyphenat}
 \usepackage[
-  marginparwidth=60pt,
+  inner=1.5cm,
+  textwidth=26pc,
+  marginparwidth=9pc,
   marginparsep=15pt,
 ]{geometry}
 \usepackage{graphicx}
@@ -47,8 +49,8 @@
     linkcolor=black,
     urlcolor=black
 }
-\usepackage[printwatermark]{xwatermark}
-\newwatermark*[firstpage,color=red!50,angle=45,scale=5,xpos=0,ypos=0]{DRAFT}
+%\usepackage[printwatermark]{xwatermark}
+%\newwatermark*[firstpage,color=red!50,angle=45,scale=5,xpos=0,ypos=0]{DRAFT}
 
 \usepackage{enumerate}
 \usepackage{expl3}
@@ -85,7 +87,9 @@
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
 \newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}#1}\marginnote{\scriptsize{}#1.\ \csuse{authornote#1}}}
+\newcommand\authorlatintrans[1]{{\color{maroon}\ [\textit{\csuse{authornote#1}}]}\xspace}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
+\newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
 \usepackage{tikz}
@@ -105,6 +109,7 @@
 \def\etc{\latinabbrev{etc}}
 \def\ie{\latinabbrev{i.e}}
 \usepackage{lettrine}
+\renewcommand{\LettrineFontHook}{\color{maroon}}
 \setcounter{DefaultLines}{3}
 \setlength{\DefaultFindent}{5pt}
 \setlength{\DefaultNindent}{0pt}
@@ -115,8 +120,8 @@
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
-%\includeonly{00-frontispiece-legend,00-about-the-author,12-particular-cures}
-\hyphenation{Chry-so-stom The-mi-sto-cles}
+%\includeonly{00-frontispiece-legend,00-about-the-author,04-democritus-jr-to-the-reader,04-democritus-jr-to-the-reader-notes}
+\hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss}
 \begin{document}
 \frontmatter
 \pdfbookmark{Cover}{cover}
