@@ -27,8 +27,8 @@
 \usepackage{epigraph}
 \usepackage{hyphenat}
 \usepackage[
-  marginparwidth=50pt,
-  marginparsep=5pt,
+  marginparwidth=60pt,
+  marginparsep=15pt,
 ]{geometry}
 \usepackage{graphicx}
 \usepackage{svg}
@@ -73,15 +73,18 @@
 
 \usepackage[side,flushmargin,ragged,multiple,perpage]{footmisc}
 \usepackage[para*,perpage]{manyfoot}
+\usepackage{xspace}
 \DeclareNewFootnote{A}[arabic]
 \DeclareNewFootnote[para]{B}[roman]
 \usepackage[]{marginnote}
+\definecolor{maroon}{RGB}{134,38,51}
 \newcommand\margindef[2]{#2\footnoteA{\scriptsize{}#1}}
-\newcommand\latinmargintrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
+%\newcommand\latinfootnotetrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
+\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ [\textit{#1}]\xspace}}
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
-\newcommand\authormarginnote[1]{\marginnote{\csuse{authornote#1}}}
+\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}#1}\marginnote{\scriptsize{}#1.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
