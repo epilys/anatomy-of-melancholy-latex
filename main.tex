@@ -108,14 +108,15 @@
 \definecolor{maroon}{RGB}{134,38,51}
 \newcommand\margindef[2]{#2\footnoteA{\scriptsize{}#1}}
 %\newcommand\latinfootnotetrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
-\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ [\textit{#1}]\xspace}}
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
 \newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}#1}\marginnote{\scriptsize{}#1.\ \csuse{authornote#1}}}
-\newcommand\authorlatintrans[1]{{\color{maroon}\ [\textit{\csuse{authornote#1}}]}\xspace}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
+\xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote}
+\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ [\textit{#1}]\xspace}}
+\newcommand\authorlatintrans[1]{{\color{maroon}\ [\textit{\csuse{authornote#1}}]}\xspace}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
 \usepackage{tikz}
