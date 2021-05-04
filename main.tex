@@ -11,7 +11,9 @@
   datecirca=true,
   sorting=none
 ]{biblatex}
-\setmainfont[Scale=1,BoldItalicFont=Junicode]{Junicode}
+\setmainfont[Ligatures=Required,StylisticSet={18,11},Contextuals=Alternate,Scale=1,BoldItalicFont=Junicode]{Junicode}
+\newfontfamily\junicoderomannumerals[Scale=1,BoldItalicFont=Junicode,Ligatures=Discretionary]{Junicode}
+\newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -111,7 +113,7 @@
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
-\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}#1}\marginnote{\scriptsize{}#1.\ \csuse{authornote#1}}}
+\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{\scriptsize{}{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote}
@@ -185,6 +187,7 @@
 \pdfbookmark[0]{List of Prescriptions}{lop}
 \listof{Prescription}{List of Prescriptions}
 \bookmarksetup{startatroot}
+\addfontfeature{Numbers={OldStyle}}
 \include{00-about-the-author}
 \clearpage
 \mainmatter
