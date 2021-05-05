@@ -1,9 +1,6 @@
-Engraving: https://wellcomecollection.org/works/eegsnbxe
+# "The anatomy of melancholy" (1621) in XeLaTex
 
-Depressed scholar: https://wellcomecollection.org/works/pg8suvar
+## Other resources:
 
-Raving and melancholy: https://www.europeana.eu/en/item/9200579/zn5ajz7q
-
-Death above sick people: https://www.europeana.eu/en/item/9200579/s3zn5bpd
-
-Laughing democritus: https://www.europeana.eu/en/item/90402/SK_A_2783
+- Interlinear latin vocabulary tool https://nodictionaries.com/novifex
+- English hyphenator https://www.hyphenator.net/en/word/

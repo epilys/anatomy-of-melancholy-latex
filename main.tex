@@ -13,6 +13,7 @@
 ]{biblatex}
 \setmainfont[Ligatures=Required,StylisticSet={18,11},Contextuals=Alternate,Scale=1,BoldItalicFont=Junicode]{Junicode}
 \newfontfamily\junicoderomannumerals[Scale=1,BoldItalicFont=Junicode,Ligatures=Discretionary]{Junicode}
+\newcommand{\rn}[1]{{\junicoderomannumerals{}#1}}
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
@@ -115,9 +116,11 @@
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
 \newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{\scriptsize{}{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
+\newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote}
 \newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ [\textit{#1}]\xspace}}
+\newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
 \newcommand\authorlatintrans[1]{{\color{maroon}\ [\textit{\csuse{authornote#1}}]}\xspace}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
@@ -149,8 +152,8 @@
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
-%\includeonly{00-frontispiece-legend,00-about-the-author,04-democritus-jr-to-the-reader,04-democritus-jr-to-the-reader-notes}
-\hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss}
+%\includeonly{00-frontispiece-legend,00-about-the-author,05-to-the-reader-at-leisure,07-of-diseases-in-general-notes,07-of-diseases-in-general}
+\hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius}
 \begin{document}
 \frontmatter
 \pdfbookmark{Cover}{cover}
