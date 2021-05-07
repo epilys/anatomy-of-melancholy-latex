@@ -1,0 +1,60 @@
+\RequirePackage{hyperref}
+\RequirePackage[
+  style=numeric,
+  backref=true,
+  datecirca=true,
+  dateuncertain=true,
+  dateabbrev=false,
+  sorting=none,
+  datezeros=false,% pad date components with zeros?
+  dateera=secular,
+]{biblatex}
+
+\DefineBibliographyStrings{english}{%
+  backrefpage = {page},% originally "cited on page"
+  backrefpages = {pages},% originally "cited on pages"
+}
+
+\renewcommand*{\datecircadelim}{~}
+\DeclareFieldFormat{italics}{\textit{#1}}
+\DeclareFieldFormat{annote}{\linespread{0.5}\setstretch{0.1}\notefont{}#1\par}
+
+\DeclareCiteCommand{\citeyearuncertain}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\iffieldundef{year}{undefined}{\printdate}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citeannotation}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  %{\iffieldundef{annotation}{}{\justify\vspace{-1.6\baselineskip}\begin{multicols}{2}\printfield[annote]{annotation}\end{multicols}}}
+  {\iffieldundef{annotation}{}{\vspace{-1\baselineskip}%
+  \begin{multicols}{2}%
+  \printfield[annote]{annotation}%
+  \end{multicols}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+%\DeclareCiteCommand{\shortciteannotation}
+%  {\boolfalse{citetracker}%
+%   \boolfalse{pagetracker}%
+%   \usebibmacro{prenote}}
+%  {\iffieldundef{annotation}{}{, \printtext{\truncate{0.2\textwidth}{\printfield[annote]{annotation}}}}}
+%  {\multicitedelim}
+%  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\citetitleit}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\printfield[italics]{title}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\newcommand{\citeart}[1]{\citeauthor{#1}, \citetitleit{#1}, \citeyearuncertain{#1}, \citefield{#1}{type}.\nocite{#1}}
+\newcommand{\captionart}[1]{\caption{\citeart{#1}}%
+  \endgroup%
+\citeannotation{#1}}
+%\newcommand{\citecaption}[1]{\citetitleit{#1}, \citeauthor{#1} \citeyearuncertain{#1} \nocite{#1}}

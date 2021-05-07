@@ -9,12 +9,17 @@
   style=numeric,
   backref=true,
   datecirca=true,
-  sorting=none
+  dateuncertain=true,
+  dateabbrev=false,
+  sorting=none,
+  datezeros=false,% pad date components with zeros?
+  dateera=secular,
 ]{biblatex}
 \setmainfont[Ligatures=Required,StylisticSet={18,11},Contextuals=Alternate,Scale=1,BoldItalicFont=Junicode]{Junicode}
 \newfontfamily\junicoderomannumerals[Scale=1,BoldItalicFont=Junicode,Ligatures=Discretionary]{Junicode}
 \newcommand{\rn}[1]{{\junicoderomannumerals{}#1}}
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
+\newfontfamily\notefont[Scale=0.6,BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -66,6 +71,10 @@
 \usepackage{csquotes}
 \usepackage{float}
 \usepackage[]{caption}
+\captionsetup{parskip=0pt,justification=centering,font=small,labelformat=empty,labelsep=none,textformat=simple}
+% original is 28.0pt plus 2.0pt minus 4.0pt.
+
+\setlength{\textfloatsep}{5.0pt plus 2.0pt minus 4.0pt}
 \usepackage[ noclrdblpg]{colophon}
 \usepackage{pdfpages}
 
@@ -83,13 +92,9 @@
 
 \usepackage{enumerate}
 \usepackage{expl3}
-
-\newcommand{\citeart}[1]{\citetitle{#1}, \citefield{#1}{annotation} by \citeauthor{#1}, \citeyear{#1} \nocite{#1}}
-%\newcommand{\citecaption}[1]{\citetitle{#1}, \citeauthor{#1} \citeyear{#1} \nocite{#1}}
-\DefineBibliographyStrings{english}{%
-  backrefpage = {page},% originally "cited on page"
-  backrefpages = {pages},% originally "cited on pages"
-}
+\usepackage{multicol}
+\setlength{\multicolsep}{0pt}
+\usepackage{bibliography-macros}
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
@@ -100,7 +105,6 @@
   }
 \usepackage{bookmark}
 \usepackage{etoolbox}
-\captionsetup{labelformat=empty,labelsep=none}
 
 \usepackage[side,flushmargin,ragged,multiple,perpage]{footmisc}
 \usepackage[para*,perpage]{manyfoot}
