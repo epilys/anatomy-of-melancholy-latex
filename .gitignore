@@ -1,3 +1,5 @@
+!build/main.pdf
+build/*
 svg-inkscape
 tags
 ## Core latex/pdflatex auxiliary files:

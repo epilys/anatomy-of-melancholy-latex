@@ -16,19 +16,16 @@ citations.bib:
 # -pdflatex="" tells latexmk to call a specific backend with specific options.
 # -use-make tells latexmk to call make for generating missing files.
 
-# -interaction=nonstopmode keeps the pdflatex backend from stopping at a
-# missing file reference and interactively asking you for an alternative.
-
 #anatomy-of-melancholy.pdf: main.tex citations.bib
 anatomy-of-melancholy.pdf: main.tex *.tex
-	latexmk -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex --shell-escape %O %S" -use-make main.tex
+	latexmk -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -output-directory=build -interaction=batchmode --shell-escape %O %S" -use-make main.tex
 	@du -sh main.pdf
 	@mpv --volume 35 /usr/share/sounds/freedesktop/stereo/bell.oga > /dev/null
 	@notify-send Done
 
 
 clean:
-	latexmk -CA
+	latexmk -outdir=build -auxdir=build -CA
 
 gen-samples:
 	convert -alpha remove -density 300 -quality 100 "main.pdf[$(pages)]" output.png
