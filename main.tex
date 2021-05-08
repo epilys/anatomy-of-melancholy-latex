@@ -122,7 +122,8 @@
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
-\xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote}
+\xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote \inlinetrans}
+\newcommand\inlinetrans[1]{\color{maroon}\ \textit{[#1]}\xspace}
 \newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ \textit{[#1]}\xspace}}
 \newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
 \newcommand\authorlatintrans[1]{{\color{maroon}\ \textit{[\csuse{authornote#1}]}}\xspace}
