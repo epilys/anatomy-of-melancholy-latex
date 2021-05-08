@@ -71,10 +71,9 @@
 \usepackage{csquotes}
 \usepackage{float}
 \usepackage[]{caption}
-\captionsetup{parskip=0pt,justification=centering,font=small,labelformat=empty,labelsep=none,textformat=simple}
+\captionsetup{parskip=0pt,justification=centering,labelformat=empty,labelsep=none,textformat=simple}
 % original is 28.0pt plus 2.0pt minus 4.0pt.
-
-\setlength{\textfloatsep}{5.0pt plus 2.0pt minus 4.0pt}
+%\setlength{\textfloatsep}{5.0pt plus 2.0pt minus 4.0pt}
 \usepackage[ noclrdblpg]{colophon}
 \usepackage{pdfpages}
 
@@ -123,9 +122,9 @@
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote}
-\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ [\textit{#1}]\xspace}}
+\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ \textit{[#1]}\xspace}}
 \newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
-\newcommand\authorlatintrans[1]{{\color{maroon}\ [\textit{\csuse{authornote#1}}]}\xspace}
+\newcommand\authorlatintrans[1]{{\color{maroon}\ \textit{[\csuse{authornote#1}]}}\xspace}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
 \usepackage{tikz}
@@ -153,11 +152,15 @@
 \newcommand\marginrecipe[1]{\marginnote{\scriptsize{}#1}}%
 \usepackage{prescription-env}
 \usepackage{wrapfig}
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
-%\includeonly{00-frontispiece-legend,00-about-the-author,05-to-the-reader-at-leisure,07-of-diseases-in-general-notes,07-of-diseases-in-general}
-\hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius}
+%\includeonly{00-frontispiece-legend,00-about-the-author,07-of-diseases-in-general-notes,07-of-diseases-in-general}
+\hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius Athen-odor-us}
 \begin{document}
 \frontmatter
 \pdfbookmark{Cover}{cover}
@@ -204,7 +207,7 @@
 \include{04-democritus-jr-to-the-reader-notes}
 \include{04-democritus-jr-to-the-reader}
 \include{05-to-the-reader-at-leisure}
-\part{The First Partition}
+\part{The First Partition}\label{part:first}
 \include{06-synopsis-of-the-first-partition}
 \include{07-of-diseases-in-general-notes}
 \include{07-of-diseases-in-general}
@@ -213,7 +216,7 @@
 \include{09-prognostics-of-melancholy-notes}
 \include{09-prognostics-of-melancholy}
 \chapter{Notes}
-\part{The Second Partition}
+\part{The Second Partition}\label{part:second}
 \chapter{The Synopsis of the Second Partition}
 \include{10-synopsis-of-the-second-partition}
 \include{11-cure-of-melancholy-in-general-notes}
@@ -221,7 +224,7 @@
 \include{12-particular-cures-notes}
 \include{12-particular-cures}
 \chapter{Notes}
-\part{The Third Partition}
+\part{The Third Partition}\label{part:three}
 \include{13-synopsis-of-the-third-partition}
 \include{14-love-and-its-objects-notes}
 \include{14-love-and-its-objects}

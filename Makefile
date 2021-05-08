@@ -21,7 +21,7 @@ citations.bib:
 
 #anatomy-of-melancholy.pdf: main.tex citations.bib
 anatomy-of-melancholy.pdf: main.tex *.tex
-	latexmk -pdfxe  -pdfxelatex="xelatex --shell-escape %O %S" -use-make main.tex
+	latexmk -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex --shell-escape %O %S" -use-make main.tex
 	@du -sh main.pdf
 	@mpv --volume 35 /usr/share/sounds/freedesktop/stereo/bell.oga > /dev/null
 	@notify-send Done
