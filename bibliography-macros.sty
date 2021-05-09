@@ -17,7 +17,7 @@
 
 \renewcommand*{\datecircadelim}{~}
 \DeclareFieldFormat{italics}{\textit{#1}}
-\DeclareFieldFormat{annote}{\linespread{0.5}\setstretch{0.1}\notefont{}#1\par}
+\DeclareFieldFormat{annote}{\notefont\tiny#1\par}
 
 \DeclareCiteCommand{\citeyearuncertain}
   {\boolfalse{citetracker}%
@@ -32,7 +32,7 @@
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
   %{\iffieldundef{annotation}{}{\justify\vspace{-1.6\baselineskip}\begin{multicols}{2}\printfield[annote]{annotation}\end{multicols}}}
-  {\iffieldundef{annotation}{}{\vspace{-1\baselineskip}%
+  {\iffieldundef{annotation}{}{\vspace{-1.2\baselineskip}%
   \begin{multicols}{2}%
   \printfield[annote]{annotation}%
   \end{multicols}}}

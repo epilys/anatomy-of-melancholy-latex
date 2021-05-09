@@ -19,7 +19,8 @@
 \newfontfamily\junicoderomannumerals[Scale=1,BoldItalicFont=Junicode,Ligatures=Discretionary]{Junicode}
 \newcommand{\rn}[1]{{\junicoderomannumerals{}#1}}
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
-\newfontfamily\notefont[Scale=0.6,BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
+%This set includes large miniscules of Junicode, which makes smaller text more legible, which is ideal for notes (marginalia/footnotes etc)
+\newfontfamily\notefont[OpticalSize=5,Script={Latin},BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -120,7 +121,7 @@
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
-\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{\scriptsize{}{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
+\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{\scriptsize{}\notefont{}{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
@@ -161,6 +162,21 @@
   \ifodd\value{page}\hbox{}\newpage\fi
 }
 \newcommand\translationrule{\nopagebreak\noindent\hfil\rule{0.5\textwidth}{.5pt}\hfil\nopagebreak}
+\usepackage{schemata}
+
+
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\newcommand\colorunderline[1]{\bgroup\markoverwith{\textcolor{#1}{\rule[-0.5ex]{2pt}{0.8pt}}}\ULon}
+\newcommand{\myuline}[2]{%
+  \colorunderline{#1}{\phantom{#2}}%
+  \llap{\contour{white}{#2}}%
+}
+
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
@@ -220,7 +236,6 @@
 \include{08-symptoms-of-melancholy}
 \include{09-prognostics-of-melancholy-notes}
 \include{09-prognostics-of-melancholy}
-\chapter{Notes}
 \part{The Second Partition}\label{part:second}
 \chapter{The Synopsis of the Second Partition}
 \include{10-synopsis-of-the-second-partition}
@@ -228,8 +243,7 @@
 \include{11-cure-of-melancholy-in-general}
 \include{12-particular-cures-notes}
 \include{12-particular-cures}
-\chapter{Notes}
-\part{The Third Partition}\label{part:three}
+\part{The Third Partition}\label{part:third}
 \include{13-synopsis-of-the-third-partition}
 \include{14-love-and-its-objects-notes}
 \include{14-love-and-its-objects}
@@ -239,7 +253,6 @@
 \include{16-jealousy}
 \include{17-religious-melancholy-notes}
 \include{17-religious-melancholy}
-\chapter{Notes}
 \backmatter
 \bookmarksetup{startatroot}
 \nocite{*}
@@ -251,12 +264,12 @@
 \colophontitlesize{18pt}
 \colophonparsize{10pt}
 \begin{colophon}
-\epigraph{\footnotesize\textit{'Morteque malorum: raptor libri moriatur'}\\(Death from evil things: may the thief of this book die.)}{\scriptsize{}Scribe curses a book’s thief to death, from William of Nottingham’s Commentary on the Harmony of the Gospels, Evesham, c. 1381, Royal MS 4 E II, f. 471r}
-Avoid the fate of this curse by procuring this document \emph{gratis et libre}:
+  \epigraph{\footnotesize\textit{'Morteque malorum: raptor libri moriatur'}\\(Death from evil things: may the thief of this book die.)}{\scriptsize{}Scribe curses a book’s thief to death, from William of Nottingham’s Commentary on the Harmony of the Gospels, Evesham, c. 1381, Royal MS 4 E \rn{II}, f. 471r}
+  Avoid the fate of this curse by procuring this document \textit{gratis et libre}:
 
-  \href{https://github.com/epilys/anatomy-of-melancholy-latex}{\underline{https://github.com/epilys/anatomy-of-melancholy-latex}}.
+  \href{https://github.com/epilys/anatomy-of-melancholy-latex}{\myuline{blue}{https://github.com/epilys/anatomy-of-melancholy-latex}}.
 
-  The text has been typeset in \XeLaTeX{} using the \texttt{octavo} class and \textbf{Junicode} typeface.
+  The text was sourced from \href{https://gutenberg.org/files/10800/10800-h/10800-h.htm}{\myuline{blue}{Project Gutenberg}} and has been typeset in \XeLaTeX{} using the \texttt{octavo} class and \href{https://junicode.sourceforge.io/}{\myuline{blue}{\textbf{Junicode}}} typeface.
 \end{colophon}
 \clearpage{}
 \pdfbookmark{Back Cover}{backcover}
