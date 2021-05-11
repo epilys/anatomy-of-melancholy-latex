@@ -30,12 +30,12 @@
      id="namedview11"
      showgrid="false"
      inkscape:zoom="0.71417785"
-     inkscape:cx="441.75546"
-     inkscape:cy="512.14856"
+     inkscape:cx="520.50839"
+     inkscape:cy="512.82773"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="g8296"
      showguides="true"
      inkscape:guide-bbox="true"
      units="mm"
@@ -225,7 +225,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -239,7 +239,8 @@
        inkscape:groupmode="layer"
        id="layer5"
        inkscape:label="bg 1"
-       style="display:inline">
+       style="display:inline"
+       sodipodi:insensitive="true">
       <rect
          style="opacity:1;fill:#34282a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22683704;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect6021"
@@ -253,11 +254,12 @@
        inkscape:groupmode="layer"
        id="layer6"
        inkscape:label="bg 2"
-       style="display:inline;opacity:0.519">
+       style="display:inline;opacity:0.519"
+       sodipodi:insensitive="true">
       <g
          style="display:inline;opacity:1"
          id="g1048-8"
-         transform="matrix(2.0808975,0,0,2.0808975,-2.8937687,-404.21118)"
+         transform="matrix(2.0808975,0,0,2.0808975,-4.7226733,-404.21118)"
          inkscape:transform-center-x="-41.192563"
          inkscape:transform-center-y="123.00141">
         <path
@@ -324,10 +326,11 @@
      id="layer3"
      inkscape:label="author"
      style="display:inline"
-     transform="translate(0,167.34879)">
+     transform="translate(0,167.34879)"
+     sodipodi:insensitive="true">
     <g
        id="g8241"
-       transform="matrix(0.81338029,0,0,0.81338029,0.62958599,85.121449)">
+       transform="matrix(0.81338029,0,0,0.81338029,-1.4999491,85.121449)">
       <use
          id="use1481"
          transform="matrix(1.8099092,0,0,1.8099092,51.399124,-29.233108)"
@@ -446,9 +449,10 @@
      transform="translate(0,167.34879)">
     <g
        id="g8296"
-       transform="matrix(0.81338029,0,0,0.81338029,0.37047262,-3.2183551)">
+       transform="matrix(0.81338029,0,0,0.81338029,-1.9082047,-3.2183551)">
       <g
-         id="g8260">
+         id="g8260"
+         transform="translate(0,-3.252886)">
         <use
            height="100%"
            width="100%"

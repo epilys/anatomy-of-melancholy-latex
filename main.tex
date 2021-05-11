@@ -189,6 +189,12 @@
 \end{tabular}%
 }}
 \usepackage{synopseis}
+\def\blankpage{%
+      \clearpage%
+      \thispagestyle{empty}%
+      %\addtocounter{page}{-1}%
+      \null%
+      \clearpage}
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
@@ -196,12 +202,15 @@
 \hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius Athen-odor-us}
 \begin{document}
 \frontmatter
+% First, the cover. Recto.
 \pdfbookmark{Cover}{cover}
-\begin{titlepage}
-  \includepdf[fitpaper=true]{new-cover.pdf} \label{cover}
-\end{titlepage}
-\pdfbookmark{Inner recto}{inner-recto}
-  \includepdf[fitpaper=true]{inner-recto.pdf} \label{inner-recto}
+\includepdf[fitpaper=true]{new-cover.pdf}\label{cover}
+% blank verso
+\blankpage
+% Half-title contains just the title on the recto and faces a blank verso.
+\pdfbookmark{Half-title}{half-title}
+\includepdf[fitpaper=true]{half-title.pdf}\label{half-title}
+% Frontispiece faces the title page on the verso.
 \pdfbookmark{Frontispiece}{Frontispiece}
   \newgeometry{onecolumn=true,bindingoffset=0pt,margin={21pt,42pt},centering=true,ignoreall=true,noheadfoot=true}
     \thispagestyle{titleontop}
@@ -213,13 +222,22 @@
   \end{center}
   }
   \restoregeometry
+%Title page is on recto.
+\pdfbookmark{Title page}{title-page}
+\includepdf[fitpaper=true]{title-page.pdf}\label{title-page}
+% Frontispiece legend on the verso.
+\pdfbookmark{Frontispiece legend}{frontispiece-legend}
   {
     \thispagestyle{titleontop}
     \newgeometry{scale=1.0,vmargin=0.8cm,nomarginpar=true,noheadfoot=true}
     \include{00-frontispiece-legend}
   }
-\pdfbookmark{\contentsname}{toc}
 \restoregeometry
+% Decorative recto.
+\pdfbookmark{Inner recto}{inner-recto}
+\includepdf[fitpaper=true]{inner-recto.pdf}\label{inner-recto}
+% Table of contents.
+\pdfbookmark{\contentsname}{toc}
 \tableofcontents
 \clearpage
 \phantomsection
