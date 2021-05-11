@@ -29,3 +29,6 @@ clean:
 
 gen-samples:
 	convert -alpha remove -density 300 -quality 100 "build/main.pdf[$(pages)]" output.png
+
+style:
+	pandoc style.md --from markdown+raw_attribute --pdf-engine=xelatex -o style.pdf
