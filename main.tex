@@ -21,6 +21,7 @@
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
 %This set includes large miniscules of Junicode, which makes smaller text more legible, which is ideal for notes (marginalia/footnotes etc)
 \newfontfamily\notefont[OpticalSize=5,Script={Latin},BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
+\newfontfamily\gothfont{ygoth-Regular.otf}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -121,12 +122,13 @@
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
+\newcommand\mymarginnote[1]{\marginnote{\scriptsize{}\notefont{}#1}}
 \newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{\scriptsize{}\notefont{}{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
-\xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote \inlinetrans}
-\newcommand\inlinetrans[1]{\color{maroon}\ \textit{[#1]}\xspace}
+\xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote \inlinetrans \mymarginnote}
+\newcommand\inlinetrans[1]{{\color{maroon}\ \textit{[#1]}}\xspace}
 \newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ \textit{[#1]}\xspace}}
 \newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
 \newcommand\authorlatintrans[1]{{\color{maroon}\ \textit{[\csuse{authornote#1}]}}\xspace}
@@ -154,6 +156,7 @@
 \setlength{\DefaultFindent}{5pt}
 \setlength{\DefaultNindent}{0pt}
 \usepackage{wasysym}
+\usepackage{marvosym}
 \newcommand\marginrecipe[1]{\marginnote{\scriptsize{}#1}}%
 \usepackage{prescription-env}
 \usepackage{wrapfig}
@@ -176,7 +179,16 @@
   \colorunderline{#1}{\phantom{#2}}%
   \llap{\contour{white}{#2}}%
 }
-
+%\par{\centering \asterism\par}
+\newcommand*{\asterism}{%
+\raisebox{-.3em}[1em][0em]{%  OK for 10-12pt
+\setlength{\tabcolsep}{0.05em}%
+\begin{tabular}{@{}cc@{}}%
+  \multicolumn{2}{c}*\\[-.75em]%
+  *&*%
+\end{tabular}%
+}}
+\usepackage{synopseis}
 %\usepackage{blindtext} % tor the example text
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
@@ -237,7 +249,6 @@
 \include{09-prognostics-of-melancholy-notes}
 \include{09-prognostics-of-melancholy}
 \part{The Second Partition}\label{part:second}
-\chapter{The Synopsis of the Second Partition}
 \include{10-synopsis-of-the-second-partition}
 \include{11-cure-of-melancholy-in-general-notes}
 \include{11-cure-of-melancholy-in-general}
@@ -256,11 +267,11 @@
 \backmatter
 \bookmarksetup{startatroot}
 \nocite{*}
-\thispagestyle{empty}
-\clearpage
-\thispagestyle{empty}
-\colophontitle{About this edition}
-\pdfbookmark{About this edition}{colophon}
+\include{18-editors-postface}
+\bookmarksetup{startatroot}
+\colophontitle{About this text}
+\pdfbookmark{About this text}{colophon}
+\thispagestyle{titleontop}
 \colophontitlesize{18pt}
 \colophonparsize{10pt}
 \begin{colophon}
