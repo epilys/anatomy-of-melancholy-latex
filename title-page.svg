@@ -30,12 +30,12 @@
      id="namedview11"
      showgrid="false"
      inkscape:zoom="1.4283557"
-     inkscape:cx="82.2629"
-     inkscape:cy="483.34684"
+     inkscape:cx="225.43452"
+     inkscape:cy="427.33838"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer3"
      showguides="true"
      inkscape:guide-bbox="true"
      units="mm"
@@ -234,12 +234,14 @@
      id="layer1"
      inkscape:label="bg"
      style="display:inline;opacity:1;filter:url(#filter6593)"
-     transform="translate(0,167.34879)">
+     transform="translate(0,167.34879)"
+     sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"
        id="layer5"
        inkscape:label="bg 1"
-       style="display:inline">
+       style="display:inline"
+       sodipodi:insensitive="true">
       <rect
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22683704;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect6021"
@@ -380,25 +382,14 @@
          width="100%"
          height="100%" />
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333397px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
-       x="55.091003"
-       y="73.192879"
-       id="text1648"><tspan
-         sodipodi:role="line"
-         id="tspan1646"
-         x="55.091003"
-         y="73.192879"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:Junicode;-inkscape-font-specification:'Junicode, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458335"
-         rotate="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0">with an editor's postface.</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Title"
      style="display:inline;opacity:1"
-     transform="translate(0,167.34879)">
+     transform="translate(0,167.34879)"
+     sodipodi:insensitive="true">
     <g
        id="g8296"
        transform="matrix(0.81338029,0,0,0.81338029,-1.9082047,-3.2183551)">

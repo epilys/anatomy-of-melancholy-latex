@@ -68,7 +68,17 @@
   \fancyfoot[LE,RO]{\thepage}
   \renewcommand{\headrulewidth}{0pt}%
   \renewcommand{\footrulewidth}{0pt}%
-  }
+}
+\fancypagestyle{title-page}{%
+  \fancyhf{}% clear all header and footer fields
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \fancyfoot[C]{\hyperref[ch:postface]{\Large{}with an editor's postface.}}
+}
+
+\newcommand{\setuptitlepage}{%
+  \thispagestyle{title-page}
+}
 
 \usepackage{graphicx}
 \usepackage{svg}
@@ -205,39 +215,53 @@
 \hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius Athen-odor-us}
 \begin{document}
 \frontmatter
-% First, the cover. Recto.
-\pdfbookmark{Cover}{cover}
-\includepdf[fitpaper=true]{new-cover.pdf}\label{cover}
-% blank verso
-\blankpage
-% Half-title contains just the title on the recto and faces a blank verso.
-\pdfbookmark{Half-title}{half-title}
-\includepdf[fitpaper=true]{half-title.pdf}\label{half-title}
-% Frontispiece faces the title page on the verso.
-\pdfbookmark{Frontispiece}{Frontispiece}
+{% First, the cover. Recto.
+  \pdfbookmark{Cover}{cover}
+  \includepdf[fitpaper=true]{new-cover.pdf}\label{cover}
+}
+{% blank verso
+  \blankpage
+}
+{% Half-title contains just the title on the recto and faces a blank verso.
+  \pdfbookmark{Half-title}{half-title}
+  \includepdf[fitpaper=true]{half-title.pdf}\label{half-title}
+}
+{% Frontispiece faces the title page on the verso.
+  \pdfbookmark{Frontispiece}{Frontispiece}
   \newgeometry{onecolumn=true,bindingoffset=0pt,margin={21pt,42pt},centering=true,ignoreall=true,noheadfoot=true}
   \thispagestyle{empty}
-  {\begin{center}
+  \begin{center}
     \includegraphics[height={\textheight- 3\baselineskip},keepaspectratio=true]{frontispiece.jpg}\label{Frontispiece}
 
     {\linespread{0.5}\setstretch{0.1}\scriptsize{}\textit{An allegorical frontispiece from the third edition (1628), engraved by \textsc{Christian Le Blon}.
     See \hyperref[ch:frontispiece]{\autoref*{ch:frontispiece} Argument of the Frontispiece}}}
   \end{center}
-  }
-  \restoregeometry
-%Title page is on recto.
-\pdfbookmark{Title page}{title-page}
-\includepdf[fitpaper=true]{title-page.pdf}\label{title-page}
-% Frontispiece legend on the verso.
-\pdfbookmark{Frontispiece legend}{frontispiece-legend}
-  {
-    \newgeometry{scale=1.0,vmargin=0.8cm,nomarginpar=true,noheadfoot=true}
-    \include{00-frontispiece-legend}
-  }
 \restoregeometry
-% Decorative recto.
-\pdfbookmark{Inner recto}{inner-recto}
-\includepdf[fitpaper=true]{inner-recto.pdf}\label{inner-recto}
+}
+{% Title page is on recto.
+  \pdfbookmark{Title page}{title-page}
+  \newgeometry{
+    marginparwidth=0pt,
+    marginparsep=0pt,
+    onecolumn=true,
+    bindingoffset=0pt,
+    bottom=106pt,
+    centering=true,
+    nohead=true
+  }
+  \includepdf[fitpaper=true,pagecommand={\setuptitlepage}]{title-page.pdf}\label{title-page}
+  \restoregeometry
+}
+{% Frontispiece legend on the verso.
+  \pdfbookmark{Frontispiece legend}{frontispiece-legend}
+  \newgeometry{scale=1.0,vmargin=0.8cm,nomarginpar=true,noheadfoot=true}
+  \include{00-frontispiece-legend}
+  \restoregeometry
+}
+{% Decorative recto.
+  \pdfbookmark{Inner recto}{inner-recto}
+  \includepdf[fitpaper=true]{inner-recto.pdf}\label{inner-recto}
+}
 % Table of contents.
 \pdfbookmark{\contentsname}{toc}
 \tableofcontents
