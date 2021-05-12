@@ -39,8 +39,9 @@
 \usepackage[
   inner=1.5cm,
   textwidth=26pc,
-  marginparwidth=9pc,
+  marginparwidth=8pc,
   marginparsep=15pt,
+  %showframe,
 ]{geometry}
 \usepackage{fancyhdr}
 \setlength{\headheight}{14.4pt}
@@ -82,6 +83,8 @@
 \usepackage{pdfpages}
 
 \usepackage{verse}
+% the marginnote length (marginparwidth) is too big and pushes the linenumbers of numbered verses outside the inner margin, so reduce the skip:
+\setlength{\vrightskip}{-12pt}
 \usepackage{hyperref}
 \hypersetup{
     unicode,
@@ -213,7 +216,7 @@
 % Frontispiece faces the title page on the verso.
 \pdfbookmark{Frontispiece}{Frontispiece}
   \newgeometry{onecolumn=true,bindingoffset=0pt,margin={21pt,42pt},centering=true,ignoreall=true,noheadfoot=true}
-    \thispagestyle{titleontop}
+  \thispagestyle{empty}
   {\begin{center}
     \includegraphics[height={\textheight- 3\baselineskip},keepaspectratio=true]{frontispiece.jpg}\label{Frontispiece}
 
@@ -228,7 +231,6 @@
 % Frontispiece legend on the verso.
 \pdfbookmark{Frontispiece legend}{frontispiece-legend}
   {
-    \thispagestyle{titleontop}
     \newgeometry{scale=1.0,vmargin=0.8cm,nomarginpar=true,noheadfoot=true}
     \include{00-frontispiece-legend}
   }
@@ -289,7 +291,7 @@
 \bookmarksetup{startatroot}
 \colophontitle{About this text}
 \pdfbookmark{About this text}{colophon}
-\thispagestyle{titleontop}
+\thispagestyle{empty}
 \colophontitlesize{18pt}
 \colophonparsize{10pt}
 \begin{colophon}
