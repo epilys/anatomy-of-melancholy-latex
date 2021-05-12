@@ -29,13 +29,13 @@
      inkscape:window-height="1080"
      id="namedview11"
      showgrid="false"
-     inkscape:zoom="0.71417785"
-     inkscape:cx="520.50839"
-     inkscape:cy="512.82773"
+     inkscape:zoom="1.01"
+     inkscape:cx="594.86247"
+     inkscape:cy="237.9216"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g8296"
+     inkscape:current-layer="layer3"
      showguides="true"
      inkscape:guide-bbox="true"
      units="mm"
@@ -234,7 +234,8 @@
      id="layer1"
      inkscape:label="bg"
      style="display:inline;opacity:1;filter:url(#filter6593)"
-     transform="translate(0,167.34879)">
+     transform="translate(0,167.34879)"
+     sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"
        id="layer5"
@@ -326,115 +327,115 @@
      id="layer3"
      inkscape:label="author"
      style="display:inline"
-     transform="translate(0,167.34879)"
-     sodipodi:insensitive="true">
+     transform="translate(0,167.34879)">
     <g
-       id="g8241"
-       transform="matrix(0.81338029,0,0,0.81338029,-1.4999491,85.121449)">
+       style="display:inline;enable-background:new"
+       id="g8241-7"
+       transform="matrix(0.8133803,0,0,0.8133803,-1.4999502,85.121449)">
       <use
-         id="use1481"
+         id="use1481-5"
          transform="matrix(1.8099092,0,0,1.8099092,51.399124,-29.233108)"
          xlink:href="#GlEBGaramond12-Regular82"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1483"
+         id="use1483-9"
          transform="matrix(1.3574319,0,0,1.3574319,62.578458,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular79"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1485"
+         id="use1485-2"
          transform="matrix(1.3574319,0,0,1.3574319,71.355798,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular66"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1487"
+         id="use1487-2"
          transform="matrix(1.3574319,0,0,1.3574319,78.296801,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular69"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1489"
+         id="use1489-8"
          transform="matrix(1.3574319,0,0,1.3574319,85.406401,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular82"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1491"
+         id="use1491-9"
          transform="matrix(1.3574319,0,0,1.3574319,93.244371,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular84"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1493"
+         id="use1493-7"
          transform="matrix(1.8099092,0,0,1.8099092,107.13962,-29.233108)"
          xlink:href="#GlEBGaramond12-Regular66"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1495"
-         transform="matrix(1.3574319,0,0,1.3574319,116.45069,-24.708336)"
+         id="use1495-3"
+         transform="matrix(1.3574319,0,0,1.3574319,116.58081,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular85"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1497"
-         transform="matrix(1.3574319,0,0,1.3574319,126.36873,-24.708336)"
+         id="use1497-6"
+         transform="matrix(1.3574319,0,0,1.3574319,126.30367,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular82"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1499"
-         transform="matrix(1.3574319,0,0,1.3574319,134.25611,-24.708336)"
+         id="use1499-1"
+         transform="matrix(1.3574319,0,0,1.3574319,134.19105,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular84"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1501"
-         transform="matrix(1.3574319,0,0,1.3574319,142.41593,-24.708336)"
+         id="use1501-2"
+         transform="matrix(1.3574319,0,0,1.3574319,142.22075,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular79"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
          height="100%" />
       <use
-         id="use1503"
-         transform="matrix(1.3574319,0,0,1.3574319,151.77197,-24.708336)"
+         id="use1503-9"
+         transform="matrix(1.3574319,0,0,1.3574319,151.21896,-24.708336)"
          xlink:href="#GlEBGaramond12-Regular78"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-opacity:1"
          x="0"
          y="0"
          width="100%"
@@ -446,7 +447,8 @@
      id="layer2"
      inkscape:label="Title"
      style="display:inline;opacity:1"
-     transform="translate(0,167.34879)">
+     transform="translate(0,167.34879)"
+     sodipodi:insensitive="true">
     <g
        id="g8296"
        transform="matrix(0.81338029,0,0,0.81338029,-1.9082047,-3.2183551)">
