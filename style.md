@@ -1,6 +1,7 @@
 ---
 title: Style for AoM edition
 date: May 5, 2021
+documentclass: article
 author:
  - epilys
 mainfont: "CMUSerif-Roman"
@@ -67,7 +68,7 @@ Symbols (for example astrological) *must* be annotated with marginal notes or fo
 
 - Notes are printed in miniscule `scriptsize` in Junicode.
 - Notes must always begin capitalised and end with a full stop.
-- Editor notes must have superscript arabic numerals as text indicators and end with `\emph{[Editor]}`.
+- Editor notes must have superscript arabic numerals as text indicators and end with `\theeditor{}`.
 - Author notes must have superscript lowercase latin letter symbols as text indicatiors. When running out of letters, add an 'a' on the left side of the indicator and start from 'a' again. For example after 'z' comes 'aa', then 'ab', 'ac', and so on.
 
 ## Footnotes Inside Quotations, Verses

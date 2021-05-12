@@ -21,7 +21,7 @@
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
 %This set includes large miniscules of Junicode, which makes smaller text more legible, which is ideal for notes (marginalia/footnotes etc)
 \newfontfamily\notefont[OpticalSize=5,Script={Latin},BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
-\newfontfamily\gothfont{ygoth-Regular.otf}
+\newfontfamily\gothfont[Scale=1.3]{ygoth-Regular.otf}
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{citations.bib}
@@ -91,10 +91,17 @@
 \setlength{\intextsep}{6.4pt plus 0.0pt minus 0.0pt}
 \usepackage[ noclrdblpg]{colophon}
 \usepackage{pdfpages}
+\usepackage{etoolbox}
 
 \usepackage{verse}
 % the marginnote length (marginparwidth) is too big and pushes the linenumbers of numbered verses outside the inner margin, so reduce the skip:
 \setlength{\vrightskip}{-12pt}
+
+\newcommand{\attrib}[1]{%
+  \nopagebreak{\raggedleft\scriptsize{}\notefont #1\par}
+}
+\verselinenumfont{\footnotesize{}\rmfamily}
+\newcommand{\theeditor}{\emph{\textemdash{}Editor.}}
 \usepackage{hyperref}
 \hypersetup{
     unicode,
@@ -121,7 +128,6 @@
   \begin{quote}\textit{#1}\end{quote}
   }
 \usepackage{bookmark}
-\usepackage{etoolbox}
 
 \usepackage[side,flushmargin,ragged,multiple,perpage]{footmisc}
 \usepackage[para*,perpage]{manyfoot}
