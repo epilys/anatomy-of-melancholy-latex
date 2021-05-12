@@ -4,10 +4,10 @@ date: May 5, 2021
 documentclass: article
 author:
  - epilys
-mainfont: "CMUSerif-Roman"
-mathfont: "CMUSerif-Roman"
-sansfont: "CMUSansSerif"
-monofont: DejaVuSansMono
+fontsize: 16pt
+mainfont: "Junicode"
+mathfont: "Junicode"
+sansfont: "Junicode"
 header-includes: |
   \usepackage[x11names,dvipsnames]{xcolor}
   \usepackage{tikz}
@@ -167,4 +167,4 @@ Retain original author wording for sections and chapters.
 
 # Classical text references
 
-Those should be annotated with a `\{greek,latin}classicalref` macro in order to make them easily searchable if they are to include hyperlinks to online text.
+Those should be annotated with a `\text{greek,latin}` `classicalref` macro in order to make them easily searchable if they are to include hyperlinks to online text.
