@@ -42,6 +42,7 @@
   textwidth=26pc,
   marginparwidth=8pc,
   marginparsep=15pt,
+  xetex,
   %showframe,
 ]{geometry}
 \usepackage{fancyhdr}
@@ -106,11 +107,19 @@
 \usepackage{hyperref}
 \hypersetup{
     unicode,
+    xetex,
+    verbose=false,
+    pdfpagelayout=TwoColumnRight,
     colorlinks,
     citecolor=black,
     filecolor=black,
     linkcolor=black,
     urlcolor=black
+}
+\hypersetup{
+  pdftitle={Anatomy of Melancholy},
+  pdfauthor={Robert Burton},
+  pdfsubject={Melancholy},
 }
 %\usepackage[printwatermark]{xwatermark}
 %\newwatermark*[firstpage,color=red!50,angle=45,scale=5,xpos=0,ypos=0]{DRAFT}
