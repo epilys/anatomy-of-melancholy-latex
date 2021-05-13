@@ -30,5 +30,8 @@ clean:
 gen-samples:
 	convert -alpha remove -density 300 -quality 100 "build/main.pdf[$(pages)]" output.png
 
-style:
-	pandoc style.md --from markdown+raw_attribute --pdf-engine=xelatex -o style.pdf
+style.pdf:
+	pandoc style.md --from markdown+raw_attribute --pdf-engine=xelatex -o build/style.pdf
+
+ygoth-kern.pdf: ygoth-kern.tex
+	latexmk -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -output-directory=build -interaction=batchmode --shell-escape %O %S" -use-make ygoth-kern.tex
