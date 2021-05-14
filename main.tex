@@ -144,6 +144,12 @@
 \usepackage{xspace}
 \DeclareNewFootnote{A}[arabic]
 \DeclareNewFootnote[para]{B}[roman]
+
+% This is necessary or else the footnote numbers will change on every compilation run, and latex will keep recompiling until max runs are reached
+\usepackage{alphalph}
+\renewcommand{\thefootnoteA}{\emph{\alphalph{\value{footnoteA}}}}
+\renewcommand{\thefootnoteB}{\emph{\alphalph{\value{footnoteB}}}}
+
 \usepackage[]{marginnote}
 \renewcommand*{\marginfont}{\scriptsize{}\notefont{}}
 \definecolor{maroon}{RGB}{134,38,51}
