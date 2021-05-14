@@ -53,8 +53,8 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\newcommand{\citeart}[1]{\citeauthor{#1}, \citetitleit{#1}, \citeyearuncertain{#1}, \citefield{#1}{type}.\nocite{#1}}
+\newcommand{\citeart}[1]{\protect\citeauthor{#1}, \protect\citetitleit{#1}, \protect\citeyearuncertain{#1}, \protect\citefield{#1}{type}.\protect\nocite{#1}}
 \newcommand{\captionart}[1]{\caption{\citeart{#1}}%
   \endgroup%
-\citeannotation{#1}}
+\protect\citeannotation{#1}}
 %\newcommand{\citecaption}[1]{\citetitleit{#1}, \citeauthor{#1} \citeyearuncertain{#1} \nocite{#1}}
