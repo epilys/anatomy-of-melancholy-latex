@@ -9,3 +9,6 @@ let g:surround_108 = "\\li{\r}"
 let g:surround_114 = "\\rn{\r}"
 " Define verse environment macro on 'v' == 118:
 let g:surround_118 = "\\begin{verse}\n\r\n\\end{verse}"
+
+" Latin numeral regexp:
+" / [mdclxvi]\+\.
