@@ -20,6 +20,13 @@
 \newfontfamily\junicoderomannumerals[Scale=1,BoldItalicFont=Junicode,Ligatures=Discretionary]{Junicode}
 \newcommand{\rn}[1]{{\junicoderomannumerals{}#1}}
 \newfontfamily\junicodenormalnumerals[Scale=1,Numbers={Proportional},BoldItalicFont=Junicode]{Junicode}
+
+% Junicode options
+%
+% Stylistic sets:
+% - Alternative italic æ (ss11)
+% - Old-Style Punctuation (ss18)
+% - Enlarged minuscules (ss06)
 %This set includes large miniscules of Junicode, which makes smaller text more legible, which is ideal for notes (marginalia/footnotes etc)
 \newfontfamily\notefont[OpticalSize=5,Script={Latin},BoldItalicFont=Junicode,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}]{Junicode}
 \newfontfamily\gothfont[Scale=1.3]{ygoth-Regular.otf}
@@ -164,18 +171,17 @@
 
 % This is necessary or else the footnote numbers will change on every compilation run, and latex will keep recompiling until max runs are reached
 \usepackage{alphalph}
-\renewcommand{\thefootnoteA}{\emph{\alphalph{\value{footnoteA}}}}
 \renewcommand{\thefootnoteB}{\emph{\alphalph{\value{footnoteB}}}}
 
 \usepackage[]{marginnote}
 \renewcommand*{\marginfont}{\scriptsize{}\notefont{}}
 \definecolor{maroon}{RGB}{134,38,51}
-\newcommand\margindef[2]{#2\footnoteA{\scriptsize{}#1}}
+\newcommand\margindef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1}}
 %\newcommand\latinfootnotetrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
-\newcommand\authormarginnote[1]{\textsuperscript{\normalfont{}\junicodenormalnumerals{}#1}\marginnote{{\junicodenormalnumerals{}#1}.\ \csuse{authornote#1}}}
+\newcommand\authormarginnote[1]{\stepcounter{footnoteB}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteB{}}\marginnote{{\junicodenormalnumerals{}\thefootnoteB{}}.\ \csuse{authornote#1}}}
 \newcommand{\inlinelatin}[1]{\textlatin{\emph{#1}}}
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
