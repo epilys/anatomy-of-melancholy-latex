@@ -95,15 +95,32 @@
 \usepackage{pdfpages}
 \usepackage{etoolbox}
 
+\usepackage{xargs}
 \usepackage{verse}
 % the marginnote length (marginparwidth) is too big and pushes the linenumbers of numbered verses outside the inner margin, so reduce the skip:
 \setlength{\vrightskip}{-12pt}
 
 \newcommand{\attrib}[1]{%
+  \vspace*{-0.5\baselineskip}
   \nopagebreak{\raggedleft\scriptsize{}\notefont #1\par}
 }
 \verselinenumfont{\footnotesize{}\rmfamily}
 \newcommand{\theeditor}{\emph{\textemdash{}Editor.}}
+
+% First arg: poemlines
+% Second arg: first line number
+% Third arg: first line to be numbered
+\newenvironmentx{versewithlinenos}[3]{%
+  \verselinenumbersleft%
+  \poemlines{#1}%
+  \begin{verse}%
+  \setverselinenums{#2}{#3}%
+}{%
+    \end{verse}%
+    \poemlines{0}%
+    \verselinenumbersright%
+}%
+
 \usepackage{hyperref}
 \hypersetup{
     unicode,
@@ -231,7 +248,6 @@
       \null%
       \clearpage}
 %\usepackage{showframe}
-\usepackage{xargs}
 \usepackage{makeidx}
 \makeindex
 \usepackage[totoc]{idxlayout}
