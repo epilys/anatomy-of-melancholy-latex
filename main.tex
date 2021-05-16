@@ -324,6 +324,7 @@
 \author{Robert Burton}
 %\includeonly{00-frontispiece-legend,00-about-the-author,07-of-diseases-in-general-notes,07-of-diseases-in-general}
 \hyphenation{Chrysos-tom Themis-to-cles melan-cholic tem-pera-ment en-grav-ing let-ter-press Ja-cob wa-ter-colour re-clin-ing na-tiv-i-ties mer-curius Bri-tan-ni-cus fron-tispiece be-twixt brain-pan dis-al-lowed caus-eth trou-ble-some hin-der Fal-mouth bu-gloss Fus-chious Vale-sius Mon-tal-tus Menar-dus Neb-uchad-nez-zar hypochon-dri-a-cal Lau-ren-tius Athen-odor-us}
+\graphicspath{{./figures/}}
 \begin{document}
 \frontmatter
 {% First, the cover. Recto.
@@ -423,7 +424,10 @@
 \bookmarksetup{startatroot}
 \cleardoublepage
 \printindex
-\protect\nocite{*}
+\bookmarksetup{startatroot}
+%\protect\nocite{*}
+\defbibnote{introduction}{All artwork in the public domain.}
+\printbibliography[prenote=introduction,heading=bibnumbered,title={Artwork Sources}]
 \include{18-editors-postface}
 \bookmarksetup{startatroot}
 \colophontitle{About this text}

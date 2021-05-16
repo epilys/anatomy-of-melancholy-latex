@@ -18,6 +18,52 @@
 \renewcommand*{\datecircadelim}{~}
 \DeclareFieldFormat{italics}{\textit{#1}}
 \DeclareFieldFormat{annote}{\notefont\tiny#1\par}
+\DeclareFieldFormat{url}{{\textsc{SOURCE URL}\addcolon\space\url{#1}}}
+\DeclareFieldFormat{onlineidentifier}{\nobreak{\textsc{IDENTIFIER}\addcolon\space\texttt{#1}}}
+\DeclareFieldFormat{includeart}{\includegraphics[keepaspectratio,width=0.85\textwidth]{#1}}
+\DeclareFieldFormat{includeartthumb}{{\graphicspath{{./figures/thumbs/}}\includegraphics[keepaspectratio,width=0.85\textwidth]{#1}}}
+
+\DeclareBibliographyDriver{misc}{%
+  \setlength{\fboxrule}{0pt}
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \fbox{\begin{minipage}{.1\textwidth}
+    {%
+      {%
+        \iffieldundef{file}{non}{%
+          \printfield[includeartthumb]{file}%
+          {\scriptsize{}\\\usebibmacro{pageref}}%
+          }%
+          }%
+          }
+  \end{minipage}%
+  }%
+  \fbox{\begin{minipage}{0.75\textwidth}
+    {\small{}%
+    \begin{spacing}{0.95}%
+      \usebibmacro{author}%
+      \setunit{\addcomma\space}\newblock
+      \printfield[italics]{title}%
+      \newunit\newblock
+      \setunit*{\addcomma\space}%
+      \printfield{type}%
+      \newunit\newblock
+      \setunit*{\addcomma\space}%
+      \printdate%
+    \end{spacing}%
+    \newunit
+    \setunit*{}
+    \vspace{0.4\baselineskip}
+    {\scriptsize{}%
+    \begin{spacing}{1}%
+      {\iffieldundef{note}{}{\printfield[onlineidentifier]{note}\\*}}%
+      \usebibmacro{url}%
+    \end{spacing}%
+    }%
+    }
+  \end{minipage}%
+  }%
+  }
 
 \DeclareCiteCommand{\citeyearuncertain}
   {\boolfalse{citetracker}%
