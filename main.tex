@@ -258,71 +258,7 @@
 \usepackage{makeidx}
 \makeindex
 \usepackage[totoc]{idxlayout}
-
-% First arg: author key.
-% Second arg: optional author full name.
-% Third arg: optional work name for subentry.
-\newcommandx{\idxname}[3][2=\empty,3=\empty,usedefault]{%
-  \ifcsdef{name:#1}{%
-    }{%
-      %name:#1 undefined, defining it as
-      \ifx#2\empty%
-        \csdef{name:#1}{#1}%
-      \else%
-        \csdef{name:#1}{#2}%
-      \fi%
-    }%
-  \ifx#3\empty%
-    \ifx#2\empty%
-      \index{\csuse{name:#1}}\csuse{name:#1}%
-    \else%
-      \index{\csuse{name:#1}}#2%
-    \fi%
-  \else%
-    \ifx#2\empty%
-      \index{\csuse{name:#1}!#3}\csuse{name:#1}%
-    \else%
-      \index{\csuse{name:#1}!#3}#2%
-    \fi%
-  \fi%
-}%
-
-% Predefine author names that have non-modern spelling or are shorthand in text
-\csdef{name:austin}{Augustine of Hippo}%
-\csdef{name:avicenna}{Ibn Sina (Avicenna)}%
-\csdef{name:campanella}{Tommaso Campanella}%
-\csdef{name:catullus}{Gaius Valerius Catullus}%
-\csdef{name:chaucer}{Geoffrey Chaucer}%
-\csdef{name:chrysostom}{John Chrysostom}%
-\csdef{name:cicero}{Marcus Tullius Cicero}%
-\csdef{name:durer}{Albrecht Dürer}%
-\csdef{name:horace}{Quintus Horatius Flaccus}%
-\csdef{name:mersenne}{Marin Mersenne (Marinus Mersennus)}%
-\csdef{name:ovid}{Publius Ovidius Naso}%
-\csdef{name:plautus}{Titus Maccius Plautus}%
-\csdef{name:polydorevergil}{Polydore Vergil}% Vergil is sometimes spelled Virgil, so this might be confused with the Roman Virgil
-
-% define some common author names
-
-\newcommand*{\Apuleius}{\idxname{Apuleius}\xspace}
-\newcommand*{\Aristotle}{\idxname{Aristotle}\xspace}
-\newcommand*{\Austin}{\idxname{austin}[Austin]\xspace}
-\newcommand*{\Avicenna}{\idxname{avicenna}[Avicenna]\xspace}
-\newcommand*{\Catullus}{\idxname{catullus}[Catullus]\xspace}
-\newcommand*{\Chaucer}{\idxname{chaucer}[Chaucer]\xspace}
-\newcommand*{\Chrysostom}{\idxname{chrysostom}[Chrysostom]\xspace}
-\newcommand*{\Cicero}{\idxname{cicero}[Cicero]\xspace}
-\newcommand*{\Democritus}{\idxname{Democritus}\xspace}
-\newcommand*{\Diogenes}{\idxname{Diogenes}\xspace}
-\newcommand*{\HoraceLatin}{\idxname{horace}[Horatius]\xspace}
-\newcommand*{\Horace}{\idxname{horace}[Horace]\xspace}
-\newcommand*{\Lucretius}{\idxname{Lucretius}\xspace}
-\newcommand*{\Ovid}{\idxname{ovid}[Ovid]\xspace}
-\newcommand*{\Plautus}{\idxname{plautus}[Plautus]\xspace}
-\newcommand*{\Pliny}{\idxname{Pliny}\xspace}
-\newcommand*{\Plutarch}{\idxname{Plutarch}\xspace}
-\newcommand*{\Seneca}{\idxname{Seneca}\xspace}
-\newcommand*{\Virgil}{\idxname{Virgil}\xspace}
+\usepackage{nameauthority}
 
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
