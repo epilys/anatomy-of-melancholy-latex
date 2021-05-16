@@ -320,11 +320,20 @@
 \clearpage
 \phantomsection
 \pdfbookmark[0]{List of Figures}{lof}
-\listoffigures
+{%
+  \renewcommand{\cftafterloftitle}{\par{}\vspace{2\baselineskip}\par{}For sources see \hyperref[app:artworksources]{appendix Artwork Sources}.}%
+  \listoffigures
+}
 \clearpage
 \phantomsection
 \pdfbookmark[0]{List of Prescriptions}{lop}
-\listof{Prescription}{List of Prescriptions}
+{%
+  \makeatletter%
+  \let\OldListHead\float@listhead%
+  \renewcommand{\float@listhead}[1]{\OldListHead{#1}The \emph{Anatomy} includes various recipes for medicine, sourced from the various referenced authors and works of medicine Burton employs.\\}
+  \makeatother%
+  \listof{Prescription}{List of Prescriptions}
+}
 \bookmarksetup{startatroot}
 \addfontfeature{Numbers={OldStyle}}
 \include{00-about-the-author}
@@ -367,7 +376,8 @@
 \bookmarksetup{startatroot}
 %\protect\nocite{*}
 \defbibnote{introduction}{All artwork in the public domain.}
-\printbibliography[prenote=introduction,heading=bibnumbered,title={Artwork Sources}]
+\phantomsection
+\printbibliography[label=app:artworksources,prenote=introduction,heading=bibnumbered,title={Artwork Sources}]
 \include{18-editors-postface}
 \bookmarksetup{startatroot}
 \colophontitle{About this text}
