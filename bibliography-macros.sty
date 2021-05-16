@@ -1,6 +1,7 @@
 \RequirePackage{hyperref}
 \RequirePackage[
-  style=numeric,
+  bibstyle=art-numeric,
+  citestyle=numeric,
   backref=true,
   datecirca=true,
   dateuncertain=true,
@@ -32,7 +33,6 @@
       {%
         \iffieldundef{file}{non}{%
           \printfield[includeartthumb]{file}%
-          {\scriptsize{}\\\usebibmacro{pageref}}%
           }%
           }%
           }
@@ -53,7 +53,7 @@
     \end{spacing}%
     \newunit
     \setunit*{}
-    \vspace{0.4\baselineskip}
+    \vspace{0.3\baselineskip}
     {\scriptsize{}%
     \begin{spacing}{1}%
       {\iffieldundef{note}{}{\printfield[onlineidentifier]{note}\\*}}%

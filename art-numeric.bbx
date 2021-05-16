@@ -1,0 +1,28 @@
+\ProvidesFile{art-numeric.bbx}
+[\abx@bbxid]
+
+\RequireBibliographyStyle{numeric}
+\ExecuteBibliographyOptions{labelnumber}
+
+\newbibmacro*{pagereflabel}{%
+  \iflistundef{pageref}
+    {}
+    {%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}}
+
+\defbibenvironment{bibliography}
+  {\list
+     {\usebibmacro{pagereflabel}}
+     {\setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+\endinput
