@@ -10,7 +10,7 @@ let g:surround_indent = 0
 " Define quote env macro on 'q' == 113:
 let g:surround_113 = "\\begin{quote}%\n\r\n\\end{quote}%"
 " Define latin env macro on 'L' == 76:
-let g:surround_76 = "\\begin{latin}%\n\r\n\\end{latin}%"
+let g:surround_76 = "\\begin{latin}\n\r\n\\end{latin}"
 " Define latin inline macro on 'l' == 108:
 let g:surround_108 = "\\li{\r}"
 " Define roman number macro on 'r' == 114:
