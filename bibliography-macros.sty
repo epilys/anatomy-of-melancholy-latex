@@ -73,24 +73,52 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
+% We want to see how many lines the annotation text would be if typeset in one
+  % column, of width 0.6\textwidth. Create a box to store the column and a
+  % length to store the number of lines:
+\newlength\AnnotationBoxLinesNo
+\newsavebox{\AnnotationBox}
+
+% Create lengths to store the height of a single line typeset with the \notefont font
+\newsavebox{\LineHeightTmpBox}
+\newlength\tnotefontheight
+\savebox{\LineHeightTmpBox}{\parbox{\textwidth}{{\tiny{}\notefont{}H}}}
+\setlength\tnotefontheight{\ht\LineHeightTmpBox}
+%\newlength\snotefontheight
+%\savebox{\LineHeightTmpBox}{\parbox{\textwidth}{{\scriptsize{}\notefont{}H}}}
+%\setlength\snotefontheight{\ht\LineHeightTmpBox}
+%\showthe\snotefontheight %5.67578pt.
+%\showthe\tnotefontheight %5.00684pt.
+
 \DeclareCiteCommand{\citeannotation}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  %{\iffieldundef{annotation}{}{\justify\vspace{-1.6\baselineskip}\begin{multicols}{2}\printfield[annote]{annotation}\end{multicols}}}
-  {\iffieldundef{annotation}{}{\vspace{-1.2\baselineskip}%
-  \begin{multicols}{2}%
-  \printfield[annote]{annotation}%
-  \end{multicols}}}
+  {\iffieldundef{annotation}{}{%
+    % Typeset the annotation text in a column but don't display it, instead
+    % save it in a box
+    \savebox{\AnnotationBox}{\parbox{0.6\textwidth}{{\centering\printfield[annote]{annotation}}}}%
+    % Divide the height of the box with the height of a single line to
+    % calculate how many lines it is.
+    \setlength\AnnotationBoxLinesNo{\dimexpr\numexpr((\ht\AnnotationBox)/\tnotefontheight)\relax pt\relax}%
+    % Don't show one column if it's more than 5 lines, instead do two columns
+    % with the multicols environment
+    \ifdim\AnnotationBoxLinesNo>5pt\relax%
+    {%
+      \vspace{-1.2\baselineskip}%
+      \begin{multicols}{2}%
+        \printfield[annote]{annotation}%
+      \end{multicols}}%
+      \else%
+      {\centering%
+      \vspace{-0.6\baselineskip}%
+      \noindent\usebox{\AnnotationBox}\par%
+      }%
+      \fi%
+  }}%
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%\DeclareCiteCommand{\shortciteannotation}
-%  {\boolfalse{citetracker}%
-%   \boolfalse{pagetracker}%
-%   \usebibmacro{prenote}}
-%  {\iffieldundef{annotation}{}{, \printtext{\truncate{0.2\textwidth}{\printfield[annote]{annotation}}}}}
-%  {\multicitedelim}
-%  {\usebibmacro{postnote}}
+
 \DeclareCiteCommand{\citetitleit}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -103,4 +131,3 @@
 \newcommand{\captionart}[1]{\caption{\citeart{#1}}%
   \endgroup%
 \protect\citeannotation{#1}}
-%\newcommand{\citecaption}[1]{\citetitleit{#1}, \citeauthor{#1} \citeyearuncertain{#1} \nocite{#1}}
