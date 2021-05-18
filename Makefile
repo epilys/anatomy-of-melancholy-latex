@@ -35,6 +35,12 @@ gen-samples:
 style.pdf:
 	pandoc style.md --from markdown+raw_attribute --pdf-engine=xelatex -o build/style.pdf
 
+aoaom: aoaom.pdf
+
+aoaom.pdf:
+	#pandoc aoaom.md --toc --from markdown+raw_attribute+hard_line_breaks --pdf-engine=xelatex --pdf-engine-opt="-shell-escape" -o build/aoaom.pdf
+	latexmk -file-line-error -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -halt-on-error -output-directory=build -interaction=batchmode --shell-escape %O %S" -use-make aoaom.tex
+
 ygoth-kern.pdf: ygoth-kern.tex
 	latexmk -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -output-directory=build -interaction=batchmode --shell-escape %O %S" -use-make ygoth-kern.tex
 
