@@ -1,9 +1,12 @@
+% Custom bibliography style for printing the artwork bibliography
 \ProvidesFile{art-numeric.bbx}
 [\abx@bbxid]
 
 \RequireBibliographyStyle{numeric}
 \ExecuteBibliographyOptions{labelnumber}
 
+% Redefine the pagereflabel macro because the original sets the label inside a
+% parenthesis (e.g. "(page 3)") but we want just the parenthesis contents here.
 \newbibmacro*{pagereflabel}{%
   \iflistundef{pageref}
     {}
@@ -13,13 +16,39 @@
          {\bibstring{backrefpage}\ppspace}%
        \printlist[pageref][-\value{listtotal}]{pageref}}}
 
+% This typesets the list entry labels for the artwork bibliography. The list is
+% of this format:
+%
+% page X   [thumbnail] [details]
+%
+% page XY  [thumbnail] [details]
+%
+% page XYZ [thumbnail] [details]
+%
+% The "page XYZ" part is done in the following bibenvironment macro. We want
+% the "page .." labels to have the same width regardless of how many digits the
+% page is. For example we don't want a "Page 5" box to be smaller than a "Page
+% 1234" box because this would cause misalignment of the list items.
+%
+% 1. Create new length to store the maximum page label width.
+\newlength\PageRefLabelWidth
+% 2. Create new box to store the maximum page label.
+\newsavebox{\PageRefLabelBox}
+% 3. Typeset a string that has the same width as the maximum page label (Book
+% won't be more than 9999 pages, hopefully).
+\savebox{\PageRefLabelBox}{\mbox{{page 9999}}}
+% 4. Set length to width of box.
+\setlength\PageRefLabelWidth{\wd\PageRefLabelBox}
+
 \defbibenvironment{bibliography}
   {\list
-     {\usebibmacro{pagereflabel}}
-     {\setlength{\labelwidth}{\labelnumberwidth}%
+      % 5. and final step. put the page label in a box of set width.
+     {\makebox[\PageRefLabelWidth]{\usebibmacro{pagereflabel}}}
+     {\setlength{\labelwidth}{\PageRefLabelWidth}%
       \setlength{\leftmargin}{\labelwidth}%
-      \setlength{\labelsep}{\biblabelsep}%
-      \addtolength{\leftmargin}{\labelsep}%
+      %\setlength{\labelsep}{\biblabelsep}%
+      \setlength{\labelsep}{0pt}%
+      %\addtolength{\leftmargin}{\labelsep}%
       \setlength{\itemsep}{\bibitemsep}%
       \setlength{\parsep}{\bibparsep}}%
       \renewcommand*{\makelabel}[1]{\hss##1}}

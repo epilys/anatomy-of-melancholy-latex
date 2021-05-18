@@ -1,4 +1,5 @@
 \RequirePackage{hyperref}
+\RequirePackage{xfp,xparse}
 \RequirePackage[
   bibstyle=art-numeric,
   citestyle=numeric,
@@ -19,16 +20,34 @@
 \renewcommand*{\datecircadelim}{~}
 \DeclareFieldFormat{italics}{\textit{#1}}
 \DeclareFieldFormat{annote}{\notefont\tiny#1\par}
-\DeclareFieldFormat{url}{{\textsc{SOURCE URL}\addcolon\space\url{#1}}}
-\DeclareFieldFormat{onlineidentifier}{\nobreak{\textsc{IDENTIFIER}\addcolon\space\texttt{#1}}}
+\DeclareFieldFormat{url}{{\Urlmuskip = 1mu plus 1mu\textsc{URL}\addcolon\space\url{#1}}}
+\DeclareFieldFormat{onlineidentifier}{\nobreak{\textsc{ID}\addcolon\space\texttt{#1}}}
 \DeclareFieldFormat{includeart}{\includegraphics[keepaspectratio,width=0.85\textwidth]{#1}}
 \DeclareFieldFormat{includeartthumb}{{\graphicspath{{./figures/thumbs/}}\includegraphics[keepaspectratio,width=0.85\textwidth]{#1}}}
 
+\edef\GoldenRatio{\fpeval{(sqrt(5)+1)/2}} % x
+\edef\GoldenRatioPlusOne{\fpeval{\GoldenRatio+1}} % x
+
+\newsavebox{\TmpBoxForWidths}
+\newlength\ArtThumbnailWidth
+\newlength\tmpAReg
+\newlength\tmpBReg
+\newlength\tmpCReg
+\newlength\ArtInfoWidth
+
+\savebox{\TmpBoxForWidths}{\mbox{thumbnail:}}%
+\setlength\ArtThumbnailWidth{\wd\TmpBoxForWidths}%
+
+\setlength\tmpAReg{\fpeval{\textwidth/\GoldenRatioPlusOne}pt}
+\setlength\tmpBReg{\GoldenRatio\tmpAReg}
+\setlength\tmpCReg{\tmpAReg-\PageRefLabelWidth-\ArtThumbnailWidth}
+\setlength\ArtInfoWidth{\tmpBReg}%
+
 \DeclareBibliographyDriver{misc}{%
-  \setlength{\fboxrule}{0pt}
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \fbox{\begin{minipage}{.1\textwidth}
+  \hspace{\tmpCReg}%
+  {\begin{minipage}{\ArtThumbnailWidth}%
     {%
       {%
         \iffieldundef{file}{non}{%
@@ -38,7 +57,7 @@
           }
   \end{minipage}%
   }%
-  \fbox{\begin{minipage}{0.75\textwidth}
+  {\begin{minipage}{\ArtInfoWidth}
     {\small{}%
     \begin{spacing}{0.95}%
       \usebibmacro{author}%
