@@ -1,11 +1,12 @@
-\documentclass[16pt,letter,oneside,usenames,dvipsnames]{memoir}
+\documentclass[12pt,a4,oneside,usenames,dvipsnames]{book}
   \usepackage{polyglossia}
   \usepackage{fontspec}
   \setmainlanguage{english}
   \setotherlanguage{greek}
-  \setmainfont[Scale=1.20]{Junicode}
+  \setmainfont[Scale=1.00]{Junicode}
   \usepackage{unicode-math}
-  \setmathfont{Latin Modern Math}
+  %\setmathfont{Latin Modern Math}
+  \setmathfont{TeX Gyre Pagella Math}
   \usepackage{microtype}
   \usepackage{dot2texi}
   \usepackage{hyperref}
@@ -41,12 +42,17 @@
   \usepackage{xcolor}
   \definecolor{bgcolor}{rgb}{0.95,0.95,0.95}
   \definecolor{red}{rgb}{1,0,0}
-  \definecolor{RED}{rgb}{1,0,0}
   \definecolor{gray}{RGB}{24,24,24}
-  \definecolor{GRAY}{RGB}{24,24,24}
+   \definecolor{thered}    {rgb} {0.65,0.04,0.07}
+ \definecolor{thegreen}  {rgb} {0.06,0.44,0.08}
+ \definecolor{theblue}   {rgb} {0.02,0.04,0.48}
+ \definecolor{sectioning}{gray}{0.44}
+ \definecolor{thegrey}   {gray}{0.5}
+ \definecolor{theframe}  {gray}{0.75}
+ \definecolor{theshade}  {gray}{0.94}
 \usepackage[cache=false,outputdir=build]{minted}
-\setminted[tex]{breaklines=true,linenos=true,bgcolor=bgcolor}
-\setminted[shell]{breaklines=true,linenos=true,bgcolor=bgcolor}
+\setminted[tex]{breaklines=true,linenos=true,bgcolor=theshade,frame=single,framesep=5pt,rulecolor=theframe}
+\setminted[shell]{breaklines=true,linenos=true,bgcolor=theshade,frame=single,framesep=5pt,rulecolor=theframe}
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \usepackage{xspace}
 \usepackage{contour}
@@ -74,7 +80,8 @@
   pdfsubject={programming},
 }
 \begin{document}
-\renewcommand{\maketitlehookb}{\centering\textsc{\subtitle}}
+\setstretch{1.1}
+\addtolength{\parskip}{5pt}%
 \newlength\drop
 \thispagestyle{empty}
 \begingroup% Harry Carter
@@ -195,6 +202,9 @@ Now, using the key for each entry we can use any of the entry fields inside the 
 \end{figure}{}
 \skelpars{2}
 
+\chapter{Including the cover, title pages and frontispiece}
+\skelpars{2}
+
 \chapter{Adding a list of figures and a list of prescriptions}
 %
 \begin{figure}{\centering%
@@ -208,10 +218,42 @@ Now, using the key for each entry we can use any of the entry fields inside the 
 \chapter{Creating formatting and helpful macros}
 \skelpars{3}
 
-\chapter{Converting the end notes to a usable format}
-\skelpars{3}
+\section{\textsc{URL}s}
 
-\chapter{Comparing Gutenberg's text with older editions for mistakes and corrections}
+Underlined text is not considered particularly pleasing. However, it's an established visual hint for hyperlinks, and we will use it for linking to the book's \texttt{git} repository and the typeface websites.
+
+Using the \myurl{https://ctan.org/pkg/contour}{contour} package, we can draw the outline of each glyph behind the glyph itself. That way, the descenders of a glyph, which is the part of the glyph going bellow the base line, do not cross the underline:
+\vspace{\baselineskip}
+\begin{figure}{\centering%
+\scalebox{4.0}{\mbox{\myurl{www.example.com}{hyperlink,}}}\par
+  }
+\end{figure}
+
+\begin{minted}{tex}
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\newcommand\colorunderline[1]{\bgroup%
+  \markoverwith{%
+    \textcolor{#1}{%
+      \rule[-0.5ex]{2pt}{0.8pt}%
+    }%
+  }%
+  \ULon%
+}
+\newcommand{\myuline}[2]{%
+  \colorunderline{#1}{\phantom{#2}}%
+  \llap{\contour{white}{#2}}%
+}
+\newcommand{\myurl}[2]{%
+  \href{#1}{\myuline{blue}{#2}}%
+}
+\end{minted}
+
+\chapter{Converting the end notes to a usable format}
 \skelpars{3}
 
 \chapter{Using footnotes or margin notes}
@@ -229,13 +271,10 @@ Now, using the key for each entry we can use any of the entry fields inside the 
 \chapter{Designing the synopsis schemata}
 \skelpars{3}
 
-\chapter{Typesetting notes}
+\chapter{Typesetting the author's notes}
 \skelpars{3}
 
 \chapter{Typesetting inline translations}
-\skelpars{3}
-
-\chapter{Creating an index for author and topic references}
 \skelpars{3}
 
 \chapter{Finding out uncommon vocabulary for a glossary}
@@ -248,6 +287,9 @@ Now, using the key for each entry we can use any of the entry fields inside the 
 \skelpars{3}
 
 \part{Appendices}
+
+\chapter{Creating an index for author and topic references}
+\skelpars{3}
 
 \chapter{Designing a custom \biblatex bibliography style to list artwork sources}
 
@@ -279,7 +321,7 @@ the book is:
                    title={Artwork Sources}]
 \end{minted}
 
-This will print a chapter with title ``Artwork Sources'' and a paragraph
+This will print a chapter with title \texttt{Artwork Sources} and a paragraph
 after the title, set with the \texttt{prenote} option and defined with a
 preceding \texttt{defbibnote} command.
 
@@ -435,7 +477,7 @@ each citation entry. We can define a custom format for printing the
 
 This is a simple \texttt{\textbackslash{}includegraphics} \emph{only} it changes
 \texttt{\textbackslash{}graphicspath} locally, that is inside the group
-defined by the braces of the macro's definition. We remember that in
+defined by the braces of the macro's definition. Recall that in
 \autoref{ch:biblatex} we set \texttt{\textbackslash{}graphicspath} to
 \texttt{./figures/}.
 
