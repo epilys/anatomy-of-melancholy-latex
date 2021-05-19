@@ -7,6 +7,9 @@ let g:surround_indent = 0
 "
 " (To determine the ASCII code to use, :echo char2nr("-")).
 "
+" Define latin verse env macro on 'j' == 106:
+let g:surround_106 = "\\begin{latin}\n\\begin{verse}\n\r\n\\end{verse}\n\\end{latin}"
+
 " Define quote env macro on 'q' == 113:
 let g:surround_113 = "\\begin{quote}%\n\r\n\\end{quote}%"
 " Define latin env macro on 'L' == 76:

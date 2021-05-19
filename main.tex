@@ -180,6 +180,7 @@
 \definecolor{maroon}{RGB}{134,38,51}
 \newcommand\margindef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1}}
 \newcommand\worddef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
+\newcommand\editornote[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
 %\newcommand\latinfootnotetrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
