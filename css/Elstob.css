@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Elstob';
+    src:url("./Elstob[GRAD,opsz,wght].woff2");
+    font-weight: 200 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Elstob';
+    src:url("./Elstob-Italic[GRAD,opsz,wght].woff2");
+    font-weight: 200 800;
+    font-style: italic;
+}
+:root {
+    --font-family: Elstob, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    --romsize: 1.5em;
+    --italsize: 1.5em;
+    --romopsz: 10;
+    --romwght: 400;
+    --romGRAD: 0;
+    --romspacing: 0em;
+    --italopsz: 10;
+    --italwght: 400;
+    --italslnt: 0;
+}
+h1 {
+    font-family: var(--font-family);
+    font-size: 3em;
+    font-variation-settings: 'opsz' 18, 'wght' 300, 'GRAD' 0;
+}
+h2 {
+    font-family: var(--font-family);
+    font-size: 1.8em;
+    font-variation-settings: 'opsz' 14, 'wght' 300, 'GRAD' 0;
+    font-feature-settings: 'smcp' on;
+}
+p {
+    font-family: var(--font-family);
+    font-size: 1.5em;
+    font-variation-settings: 'opsz' 10, 'wght' 400, 'GRAD' 0;
+    font-feature-settings: 'calt' on;
+}
+b{
+    font-variation-settings: 'opsz' 10, 'wght' 800, 'GRAD' 0,
+    'slnt' 0;
+}
+em {
+  font-style: italic;
+  font-variation-settings: 'opsz' 6, 'wght' 600, 'GRAD' 0;
+  font-feature-settings: 'hist' on;
+}
+body {
+    font-style: normal;
+    font-size: var(--romsize);
+    letter-spacing: var(--romspacing);
+    font-variation-settings: 'opsz' var(--romopsz),
+         'wght' var(--romwght),
+         'GRAD' var(--romGRAD);
+    font-feature-settings: 'calt' on;
+}
+
+.fineprint {
+    font-variation-settings: 'opsz' 6, 'wght' 700, 'GRAD' 0;
+}
+.footnote {
+    font-variation-settings: 'opsz' 8, 'wght' 700, 'GRAD' 0;
+}
+.blockquote {
+    font-variation-settings: 'opsz' 10, 'wght' 700, 'GRAD' 0;
+}
+.subhead {
+    font-variation-settings: 'opsz' 14, 'wght' 700, 'GRAD' 0;
+}
+.display {
+    font-variation-settings: 'opsz' 18, 'wght' 700, 'GRAD' 0;
+   }
+.extralight {
+    font-variation-settings: 'opsz' 12, 'wght' 200, 'GRAD' 0;
+}
+.light {
+    font-variation-settings: 'opsz' 12, 'wght' 300, 'GRAD' 0;
+}
+.medium {
+    font-variation-settings: 'opsz' 12, 'wght' 500, 'GRAD' 0;
+}
+.semibold {
+    font-variation-settings: 'opsz' 12, 'wght' 600, 'GRAD' 0;
+}
+.bold {
+    font-variation-settings: 'opsz' 12, 'wght' 700, 'GRAD' 0;
+}
+.extrabold {
+    font-variation-settings: 'opsz' 6, 'wght' 800, 'GRAD' 0;
+}
+.heavy {
+    font-variation-settings: 'opsz' 10, 'wght' 800, 'GRAD' 0.4;
+}
+.hoverable:hover {
+    font-variation-settings: 'opsz' 10, 'wght' 450, 'GRAD' 1;
+}
