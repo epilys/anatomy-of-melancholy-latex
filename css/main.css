@@ -82,7 +82,7 @@ p.subtitle {
     color: red;
 }
 
-article {
+body > div#main {
     padding: 5rem 0rem;
     grid-area: main;
 }
@@ -104,7 +104,7 @@ img.book-cover {
   min-width: 150px;
 }
 
-section {
+div {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -163,16 +163,16 @@ blockquote footer {
     text-align: right;
 }
 
-section > p,
-section > footer,
-section > table {
+div > p,
+div > footer,
+div > table {
     max-width: 50rem;
 }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
-section > dl,
-section > ol,
-section > ul {
+div > dl,
+div > ol,
+div > ul {
     width: 50%;
     -webkit-padding-start: 5%;
 }
@@ -357,9 +357,9 @@ label.margin-toggle:not(.sidenote-number) {
     }
 
     hr,
-    section > p,
-    section > footer,
-    section > table {
+    div > p,
+    div > footer,
+    div > table {
         width: 100%;
     }
 
@@ -367,9 +367,9 @@ label.margin-toggle:not(.sidenote-number) {
         width: 97%;
     }
 
-    section > dl,
-    section > ol,
-    section > ul {
+    div > dl,
+    div > ol,
+    div > ul {
         width: 90%;
     }
 
@@ -517,4 +517,15 @@ a.latex {
   position: absolute;
   right: -2.5vmin;
   top: -2.5vmin;
+}
+
+
+a.feed {
+  font: bold 0.6rem sans-serif;
+  color: #fff;
+  background: #f60;
+  padding: 0.2em 0.35em;
+  text-shadow: -1px -1px 0 #a2280c, 1px -1px 0 #a2280c, -1px 1px 0 #a2280c, 1px 1px 0 #a2280c;
+  text-decoration: none;
+  vertical-align: middle;
 }
