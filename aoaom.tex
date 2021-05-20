@@ -132,16 +132,15 @@
 To simplify the handling of a large amount of artwork in the book, we store each work as a bibliography entry in a \texttt{bib} database and use the bibliography management package \myurl{https://ctan.org/pkg/biblatex?lang=en}{biblatex}. The \texttt{bib} database is a plain text file with entries of the following format:
 
 \begin{minted}{tex}
-@Misc{TheLoveSong,
+@artwork{TheLoveSong,
   title        = {The Love Song},
   annotation   = {{Burne-Jones associated this painting with a refrain from a French folk ballad: "Alas, I know a love song, / Sad or happy, each in turn." Cupid, his arrows slung over his shoulder, works the bellows on the portative organ. This picture, which took nine years to complete, unites inspirations that shaped Burne-Jones’s art: medievalism, Italian Renaissance painting, romance, beauty, and music. Like a bittersweet melody, the scene suggests a mood of dreamy melancholy. As one critic observed, "There is no story: nothing to guess at, but everything to feel."}},
   author       = {{Edward Burne-Jones}},
   date         = {1868/1877},
   url          = {https://www.metmuseum.org/art/collection/search/435826},
-  note         = {47.26},
+  eid          = {47.26},
   file         = {The-Love-Song-Edward-Burne-Jones-small.jpg},
   type         = {oil on canvas},
-  keywords     = {artwork},
 }
 \end{minted}
 
@@ -156,7 +155,7 @@ This means that everytime we include a graphic with the \texttt{includegraphics}
 To load the database we insert this line in our main \texttt{tex} file:
 
 \begin{minted}{tex}
-\addbibresource{citations.bib}
+\addbibresource{artworks.bib}
 \end{minted}
 
 Now, using the key for each entry we can use any of the entry fields inside the document. The fields we are interested in are:
@@ -313,10 +312,11 @@ file back in chapter \hyperref[ch:biblatex]{\ref{ch:biblatex}}.
 the book is:
 
 \begin{minted}{tex}
-\defbibnote{introduction}{All artworks are in the public domain.}
+\defbibnote{artworks-introduction}{All artworks are in the public domain.}
 \phantomsection
 \printbibliography[label=app:artworksources,
-                   prenote=introduction,
+                   prenote=artworks-introduction,
+                   type=artwork,
                    heading=bibnumbered,
                    title={Artwork Sources}]
 \end{minted}
@@ -487,9 +487,9 @@ thumb location, which will be inside \texttt{figures/thumbs}, in a
 variable \texttt{\$OUTFILES}.
 
 \begin{minted}{shell}
-INFILES:=$(shell bash -c "grep file citations.bib| \
+INFILES:=$(shell bash -c "grep file artworks.bib| \
       cut -d '{' -f2 | cut -d'}' -f1 | sed 's/^/figures\//'")
-OUTFILES:=$(shell bash -c "grep file citations.bib| \
+OUTFILES:=$(shell bash -c "grep file artworks.bib| \
       cut -d '{' -f2 | cut -d'}' -f1 | sed 's/^/figures\/thumbs\//'")
 \end{minted}
 
