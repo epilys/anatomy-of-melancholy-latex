@@ -35,6 +35,7 @@
 %\newfontfamily\greekfont[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 %\newfontfamily\greekfontsf[Script=Greek,Ligatures=TeX,Scale=0.9]{GFS Neohellenic}
 \addbibresource{artworks.bib}
+\addbibresource{quotations.bib}
 %\usepackage[oldstyle]{ebgaramond}
 %\usepackage{tgschola}
 %\usepackage[default]{gfsbodoni}
@@ -226,7 +227,26 @@
   \clearpage
   \ifodd\value{page}\hbox{}\newpage\fi
 }
-\newcommand\translationrule{\nopagebreak\noindent\hfil\rule{0.5\textwidth}{.5pt}\hfil\nopagebreak}
+\newcommand\translatedverse[3]{%
+\noindent\begin{minipage}{\textwidth}%
+\begin{minipage}{\textwidth}%
+\noindent#1%
+\end{minipage}\\
+\translationrule\\
+\begin{minipage}{\textwidth}%
+\noindent#2%
+\end{minipage}
+\if\relax\detokenize{#3}\relax
+\vspace{\baselineskip}
+\else
+\begin{minipage}{\textwidth}%
+\noindent#3%
+\end{minipage}\\
+\fi
+\end{minipage}%
+}%
+
+\newcommand\translationrule{\nopagebreak[4]\noindent\hfil\rule{0.5\textwidth}{.5pt}\hfil\nopagebreak[4]}
 \usepackage{schemata}
 
 
@@ -378,9 +398,13 @@
 \printindex
 \bookmarksetup{startatroot}
 %\protect\nocite{*}
+\defbibnote{quotations-introduction}{}
+\phantomsection
+\printbibliography[label=app:quotations,prenote=quotations-introduction,nottype=artwork,heading=bibnumbered,title={Quotation sources}]
+%\protect\nocite{*}
 \defbibnote{artworks-introduction}{All artworks are in the public domain.}
 \phantomsection
-\printbibliography[label=app:artworksources,prenote=artworks-introduction,type=artwork,heading=bibnumbered,title={Artwork Sources}]
+\printbibliography[env=art-bibliography,label=app:artworksources,prenote=artworks-introduction,type=artwork,heading=bibnumbered,title={Artwork Sources}]
 \include{18-editors-postface}
 \bookmarksetup{startatroot}
 \colophontitle{About this text}
