@@ -179,6 +179,10 @@
 \usepackage[]{marginnote}
 \renewcommand*{\marginfont}{\scriptsize{}\notefont{}}
 \definecolor{maroon}{RGB}{134,38,51}
+
+
+\newcommand{\bookcite}[1]{#1}
+\newcommand{\biblecite}[1]{#1}
 \newcommand\margindef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1}}
 \newcommand\worddef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
 \newcommand\editornote[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
@@ -192,7 +196,7 @@
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote \inlinetrans}
 \newcommand\inlinetrans[1]{{\color{maroon}\ \textit{[#1]}}\xspace}
-\newcommand\latininlinetrans[2]{\emph{\textlatin{#2}}{\color{maroon}\ \textit{[#1]}\xspace}}
+\newcommand\latininlinetrans[2]{\emph{\textlatin{#1}}{\color{maroon}\ \textit{[#2]}\xspace}}
 \newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
 \newcommand\authorlatintrans[1]{{\color{maroon}\ \textit{[\csuse{authornote#1}]}}\xspace}
 \usepackage{metalogo}
