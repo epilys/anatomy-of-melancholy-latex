@@ -1,11 +1,21 @@
 \RequirePackage{float}
 \RequirePackage{fancybox}
 \floatstyle{plain}
+
+
+\newcommand\fleur{\leavevmode\xleaders\hbox{}\hfill\kern0pt}
+\newlength\PrescriptionBoxWidth
+\newsavebox{\TmpBoxForP}
+\savebox{\TmpBoxForP}{\mbox{Prescription:::::}}%
+\setlength\PrescriptionBoxWidth{\wd\TmpBoxForP}
 \newfloat{Prescription}{H}{lop}
 \newenvironment{prescriptionbox}[2]%
-{\def\PrescriptionClosingStmt{#2}\begin{Sbox}\begin{minipage}[c]{15em}%
-\par
+{\def\PrescriptionClosingStmt{#2}\begin{Sbox}\begin{minipage}[c]{\PrescriptionBoxWidth}%
+\fleur\par
+\vspace{-0.8\baselineskip}
+\hrulefill\par
+\vspace{0.5\baselineskip}
 \scriptsize{}\textlatin{℞.\ }#1\vspace{-0.5\baselineskip}\begin{enumerate}[i]}%
 {\end{enumerate}\par\vspace{-0.6\baselineskip}%
-\PrescriptionClosingStmt{}\vspace{0.6\baselineskip}\par{}{\normalsize{}}\end{minipage}%
+\PrescriptionClosingStmt{}\vspace{0.3\baselineskip}\par{}{\normalsize{}\hrulefill\par\fleur{}}\end{minipage}%
 \end{Sbox}\begin{center}\fbox{\TheSbox}\vspace{-0.6\baselineskip}\end{center}}
