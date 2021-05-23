@@ -10,6 +10,7 @@
   sorting=none,
   datezeros=false,% pad date components with zeros?
   dateera=secular,
+  defernumbers=true,
 ]{biblatex}
 
 \DefineBibliographyStrings{english}{%
@@ -19,7 +20,7 @@
 
 \renewcommand*{\datecircadelim}{~}
 \DeclareFieldFormat{italics}{\textit{#1}}
-\DeclareFieldFormat{annote}{\notefont\tiny#1\par}
+\DeclareFieldFormat{annote}{\tiny#1\par}
 \DeclareFieldFormat{url}{{\Urlmuskip = 1mu plus 1mu\textsc{URL}\addcolon\space\url{#1}}}
 \DeclareFieldFormat{onlineidentifier}{\nobreak{\textsc{ID}\addcolon\space\texttt{#1}}}
 \DeclareFieldFormat{includeart}{\includegraphics[keepaspectratio,width=0.85\textwidth]{#1}}
@@ -98,10 +99,10 @@
 \newlength\AnnotationBoxLinesNo
 \newsavebox{\AnnotationBox}
 
-% Create lengths to store the height of a single line typeset with the \notefont font
+% Create lengths to store the height of a single line typeset with the \tiny font
 \newsavebox{\LineHeightTmpBox}
 \newlength\tnotefontheight
-\savebox{\LineHeightTmpBox}{\parbox{\textwidth}{{\tiny{}\notefont{}H}}}
+\savebox{\LineHeightTmpBox}{\parbox{\textwidth}{{\tiny{}H}}}
 \setlength\tnotefontheight{\ht\LineHeightTmpBox}
 %\newlength\snotefontheight
 %\savebox{\LineHeightTmpBox}{\parbox{\textwidth}{{\scriptsize{}\notefont{}H}}}
