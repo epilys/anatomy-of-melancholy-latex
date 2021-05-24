@@ -2,8 +2,8 @@
 \usepackage[silent]{fontspec}
 \usepackage[verbose=false]{polyglossia}
 \setmainlanguage{english}
-\setotherlanguage[variant=modern,babelshorthands=true]{latin}
-\setotherlanguage{greek}
+\setotherlanguage[variant=medieval,babelshorthands=false,hyphenation=classic]{latin}
+\setotherlanguage[variant=polytonic]{greek}
 \setotherlanguage{italian}
 \usepackage[
   indexing=false,
@@ -27,13 +27,13 @@
 % - Enlarged minuscules (ss06) This set includes large miniscules of Junicode,
 %                              which makes smaller text more legible, which is ideal for notes
 %                              (marginalia/footnotes etc)
-\setmainfont[Ligatures=Required,
+\setmainfont[Ligatures={Required,Common,Contextual},
+             Kerning=On,
              StylisticSet={18,11},
-             Contextuals=Alternate,
              %Scale=1,
              BoldItalicFont=Junicode,
              SizeFeatures={
-               {Size={-10},OpticalSize=5,Ligatures=Discretionary,StylisticSet={18,11,06},Numbers={Proportional}},
+               {Size={-10},OpticalSize=5,Kerning=On,Ligatures={Required,Common,Contextual,Discretionary},StylisticSet={18,11,06},Numbers={Proportional}},
                {Size={10-}},
              },
              ]{Junicode}
@@ -163,6 +163,7 @@
   \vspace*{-1\baselineskip}
   \begin{quote}\textit{#1}\end{quote}
   }
+\renewcommand{\contentsname}{Table of Contents}
 \usepackage{bookmark}
 \definecolor{maroon}{RGB}{134,38,51}
 
@@ -175,7 +176,7 @@
 
 % This is necessary or else the footnote numbers will change on every compilation run, and latex will keep recompiling until max runs are reached
 \usepackage{alphalph}
-\renewcommand{\thefootnoteB}{\emph{\alphalph{\value{footnoteB}}}}
+\renewcommand{\thefootnoteB}{\alphalph{\value{footnoteB}}}
 
 \usepackage[]{marginnote}
 \renewcommand*{\marginfont}{\scriptsize{}}
@@ -186,7 +187,6 @@
 \newcommand\margindef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1}}
 \newcommand\worddef[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
 \newcommand\editornote[2]{#2\stepcounter{footnoteA}\textsuperscript{\normalfont{}\junicodenormalnumerals{}\thefootnoteA{}}\marginnote{\thefootnoteA{}.\ #1. \theeditor{}}}
-%\newcommand\latinfootnotetrans[2]{\emph{\textlatin{#2}}\footnoteA{\scriptsize{}#1}}
 \newcommand\setauthornote[2]{\csdef{authornote#1}{#2}}
 \newcommand\getauthornote[1]{\csuse{authornote#1}}
 \newcommand\authorfootnote[1]{\footnoteB{\csuse{authornote#1}}}
@@ -195,10 +195,10 @@
 \newcommand{\li}[1]{\textlatin{\emph{#1}}}
 \newcommand{\inlinegreek}[1]{\textgreek{\emph{#1}}}
 \xspaceaddexceptions{\footnoteA \footnoteB \authorfootnote \authormarginnote \inlinetrans}
-\newcommand\inlinetrans[1]{{\color{maroon}\ \textit{[#1]}}\xspace}
-\newcommand\latininlinetrans[2]{\emph{\textlatin{#1}}{\color{maroon}\ \textit{[#2]}\xspace}}
+\newcommand\inlinetrans[1]{{\color{maroon}\ [\textit{#1}]}\xspace}
+\newcommand\latininlinetrans[2]{\textlatin{\emph{#1}} {\color{maroon}[\textit{#2}]\xspace}}
 \newcommand{\lit}[2]{\latininlinetrans{#1}{#2}}
-\newcommand\authorlatintrans[1]{{\color{maroon}\ \textit{[\csuse{authornote#1}]}}\xspace}
+\newcommand\authorlatintrans[1]{ {\color{maroon}[\textit{\csuse{authornote#1}}]}\xspace}
 \usepackage{metalogo}
 %\usepackage[bottom]{footmisc}
 \usepackage{tikz}
@@ -285,6 +285,7 @@
 \makeindex
 \usepackage[totoc]{idxlayout}
 \usepackage{nameauthority}
+\usepackage[biblatex]{embrac}
 
 \title{Anatomy of Melancholy}
 \author{Robert Burton}
@@ -311,8 +312,8 @@
   \begin{center}
     \includegraphics[height={\textheight- 3\baselineskip},keepaspectratio=true]{frontispiece.jpg}\label{Frontispiece}
 
-    {\linespread{0.5}\setstretch{0.1}\scriptsize{}\textit{An allegorical frontispiece from the third edition (1628), engraved by \textsc{Christian Le Blon}.
-    See \hyperref[ch:frontispiece]{\autoref*{ch:frontispiece} Argument of the Frontispiece}}}
+    {\linespread{0.5}\setstretch{0.1}\scriptsize{}An allegorical frontispiece from the third edition (1628), engraved by \textsc{Christian Le Blon}.
+    See \hyperref[ch:frontispiece]{\autoref*{ch:frontispiece} Argument of the Frontispiece}}
   \end{center}
 \restoregeometry
 }
