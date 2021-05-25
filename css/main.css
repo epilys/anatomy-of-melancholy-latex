@@ -24,7 +24,7 @@ body {
 }
 
 .bigtitle {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-style: italic;
     font-variation-settings: 'opsz' 6, 'wght' 600, 'GRAD' 0;
     font-feature-settings: 'hist' on;
