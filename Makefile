@@ -20,7 +20,7 @@ all: anatomy-of-melancholy.pdf
 
 #anatomy-of-melancholy.pdf: main.tex 
 anatomy-of-melancholy.pdf: main.tex *.bib *.tex $(OUTFILES)
-	latexmk -file-line-error -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -halt-on-error -output-directory=build -interaction=batchmode --shell-escape %O %S" -use-make main.tex
+	latexmk -file-line-error -outdir=build -auxdir=build -e '$$max_repeat=2' -pdfxe  -pdfxelatex="xelatex -output-directory=build --shell-escape %O %S" -use-make main.tex
 	@du -sh build/main.pdf
 	@mpv --volume 35 /usr/share/sounds/freedesktop/stereo/bell.oga > /dev/null
 	@notify-send Done
