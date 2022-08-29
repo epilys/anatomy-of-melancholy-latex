@@ -20,6 +20,11 @@ second_entry = {
     "date": "2022-08-29T19:51:48.140230",
     "content": "After a year long break, I've updated the draft. This leaves only the third partition lacking some minimal content, and then only editing and typesetting details need to be finished. The latest published draft can be accessed from the url https://epilys.github.io/anatomy-of-melancholy-latex/aom_latest.pdf",
 }
+third_entry = {
+    "title": "Github repository is now public",
+    "date": "2022-08-29T20:08:48.140230",
+    "content": "Forgot to mention in last post, that the github repository is now public. You can inspect it at https://github.com/epilys/anatomy-of-melancholy-latex",
+}
 
 
 def make_guuid(title):
@@ -52,6 +57,7 @@ def main():
     fg.language("en")
     add_entry(fg, first_entry)
     add_entry(fg, second_entry)
+    add_entry(fg, third_entry)
 
     fg.generator("", "x", uri="")
     fg.atom_file("feed.atom")
